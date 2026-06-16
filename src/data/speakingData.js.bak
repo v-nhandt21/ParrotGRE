@@ -1,0 +1,288 @@
+// ===== SPEAKING PART 1 =====
+export const speakingPart1 = [
+  {
+    id: 1, topic: "Hometown & Home", topicVi: "Quê hương & Nhà ở",
+    questions: [
+      {
+        q: "Where are you from?",
+        qVi: "Bạn đến từ đâu?",
+        answer: "I'm from Hanoi, the capital city of Vietnam. It's a vibrant, bustling metropolis with a fascinating blend of ancient history and modern development. I grew up there, so it holds a very special place in my heart.",
+        answerVi: "Tôi đến từ Hà Nội, thủ đô của Việt Nam. Đây là một đô thị sôi động, nhộn nhịp với sự pha trộn hấp dẫn giữa lịch sử cổ đại và phát triển hiện đại. Tôi lớn lên ở đó, vì vậy nó có một vị trí rất đặc biệt trong tim tôi."
+      },
+      {
+        q: "Do you like living there? Why?",
+        qVi: "Bạn có thích sống ở đó không? Tại sao?",
+        answer: "Yes, I genuinely love it. The food culture alone is extraordinary — we have hundreds of distinct street foods that you can't find anywhere else. The people are incredibly warm and hospitable, and there's always something happening culturally. The only downside is the traffic, which can be quite chaotic during rush hours.",
+        answerVi: "Vâng, tôi thực sự yêu nơi đó. Riêng văn hóa ẩm thực đã là phi thường — chúng tôi có hàng trăm món ăn đường phố đặc trưng mà bạn không thể tìm thấy ở bất kỳ nơi nào khác. Người dân rất nhiệt tình và hiếu khách, và luôn có điều gì đó đang diễn ra về mặt văn hóa."
+      },
+      {
+        q: "What is your city/town famous for?",
+        qVi: "Thành phố/thị trấn của bạn nổi tiếng về điều gì?",
+        answer: "Hanoi is famous for its 1,000-year history, its French colonial architecture, and its incredible food. The Old Quarter, with its 36 ancient streets, draws millions of tourists every year. We're also known for Hoan Kiem Lake, which sits right in the heart of the city and is surrounded by temples and gardens — it's absolutely stunning.",
+        answerVi: "Hà Nội nổi tiếng với lịch sử 1.000 năm, kiến trúc thuộc địa Pháp và ẩm thực tuyệt vời. Phố cổ với 36 phố cổ thu hút hàng triệu khách du lịch mỗi năm. Chúng tôi cũng nổi tiếng với Hồ Hoàn Kiếm nằm ngay giữa lòng thành phố và được bao quanh bởi đền thờ và vườn hoa."
+      },
+    ]
+  },
+  {
+    id: 2, topic: "Work & Study", topicVi: "Công việc & Học tập",
+    questions: [
+      {
+        q: "Do you work or are you a student?",
+        qVi: "Bạn đang đi làm hay đang là sinh viên?",
+        answer: "Currently, I'm a student studying Business Administration at university. However, I also work part-time at a local café to support myself and gain some practical work experience. It's quite demanding balancing both, but I find it extremely rewarding.",
+        answerVi: "Hiện tại, tôi là sinh viên đang học Quản trị Kinh doanh tại trường đại học. Tuy nhiên, tôi cũng làm bán thời gian tại một quán cà phê địa phương để tự trang trải và tích lũy kinh nghiệm làm việc thực tế. Việc cân bằng cả hai khá đòi hỏi nhưng tôi thấy rất bổ ích."
+      },
+      {
+        q: "Why did you choose your subject/job?",
+        qVi: "Tại sao bạn chọn môn học/công việc đó?",
+        answer: "I chose Business Administration because I've always been entrepreneurially minded. From a young age, I was fascinated by how companies operate and how successful leaders make decisions. I hope to eventually start my own company, and I feel this degree provides the theoretical foundation I need. The analytical and communication skills I'm developing are invaluable.",
+        answerVi: "Tôi chọn Quản trị Kinh doanh vì tôi luôn có tư duy khởi nghiệp. Từ nhỏ, tôi đã mê hoặc bởi cách các công ty vận hành và cách các nhà lãnh đạo thành công đưa ra quyết định. Tôi hy vọng cuối cùng sẽ thành lập công ty riêng."
+      },
+      {
+        q: "What do you enjoy most about your studies?",
+        qVi: "Điều bạn thích nhất về việc học là gì?",
+        answer: "I most enjoy the case study analyses where we examine real business scenarios and debate the best strategies. These sessions feel genuinely applicable to real life and get me thinking creatively. I also love the collaborative projects — working with classmates from different backgrounds always broadens my perspective considerably.",
+        answerVi: "Tôi thích nhất các phân tích tình huống thực tế, nơi chúng tôi xem xét các kịch bản kinh doanh thực tế và tranh luận về các chiến lược tốt nhất. Các buổi này có cảm giác thực sự áp dụng được vào cuộc sống thực và khiến tôi suy nghĩ sáng tạo."
+      },
+    ]
+  },
+  {
+    id: 3, topic: "Hobbies & Free Time", topicVi: "Sở thích & Thời gian rảnh",
+    questions: [
+      {
+        q: "What do you enjoy doing in your free time?",
+        qVi: "Bạn thích làm gì trong thời gian rảnh?",
+        answer: "I have quite a varied range of interests. I'm an avid reader — I particularly enjoy historical fiction and popular science books. I also love cooking, especially experimenting with dishes from different cultures. On weekends, I try to go hiking or cycling to stay active and clear my head. Reading and being in nature are my two greatest sources of relaxation.",
+        answerVi: "Tôi có khá nhiều sở thích đa dạng. Tôi là người đọc sách say mê — tôi đặc biệt thích tiểu thuyết lịch sử và sách khoa học phổ thông. Tôi cũng thích nấu ăn, đặc biệt là thử nghiệm với các món ăn từ các nền văn hóa khác nhau."
+      },
+      {
+        q: "Is there a hobby you'd like to try in the future?",
+        qVi: "Có sở thích nào bạn muốn thử trong tương lai không?",
+        answer: "Absolutely — I've always wanted to learn to play the piano. There's something deeply beautiful about the way skilled pianists can express emotion through music. I've been putting it off because of time constraints, but I'm determined to take lessons within the next year. I believe learning an instrument would also improve my mental discipline and focus.",
+        answerVi: "Tất nhiên — tôi luôn muốn học chơi đàn piano. Có điều gì đó sâu sắc và đẹp đẽ trong cách những nghệ sĩ piano lành nghề có thể bày tỏ cảm xúc qua âm nhạc. Tôi đã trì hoãn vì hạn chế về thời gian nhưng quyết tâm học trong năm tới."
+      },
+    ]
+  },
+  {
+    id: 4, topic: "Food & Cooking", topicVi: "Ẩm thực & Nấu ăn",
+    questions: [
+      {
+        q: "What is your favourite food?",
+        qVi: "Món ăn yêu thích của bạn là gì?",
+        answer: "My absolute favourite would have to be Pho — a Vietnamese noodle soup. It sounds simple, but a properly made bowl of Pho takes hours of careful preparation, with the broth simmered slowly with spices like star anise and cinnamon. The combination of tender beef, fresh herbs, and that deeply flavourful broth is truly unparalleled. I could eat it every single day.",
+        answerVi: "Món yêu thích tuyệt đối của tôi phải là Phở — một món súp mì Việt Nam. Nghe có vẻ đơn giản, nhưng một bát Phở được nấu đúng cách mất nhiều giờ chuẩn bị cẩn thận, với nước dùng được đun nhỏ lửa cùng gia vị như hoa hồi và quế."
+      },
+      {
+        q: "Do you enjoy cooking? Why/Why not?",
+        qVi: "Bạn có thích nấu ăn không? Tại sao?",
+        answer: "Yes, I absolutely love cooking. I find it genuinely therapeutic — it's one of the few activities where I can completely switch off from academic pressures and focus entirely on the task at hand. There's also something deeply satisfying about creating something delicious from raw ingredients. I particularly enjoy trying recipes from other cultures, which I find is a wonderful way to learn about different traditions.",
+        answerVi: "Vâng, tôi thực sự yêu thích nấu ăn. Tôi thấy nó thực sự trị liệu — đây là một trong số ít hoạt động mà tôi có thể hoàn toàn tắt khỏi áp lực học thuật và tập trung hoàn toàn vào công việc trước mắt."
+      },
+    ]
+  },
+  {
+    id: 5, topic: "Technology & Internet", topicVi: "Công nghệ & Internet",
+    questions: [
+      {
+        q: "How often do you use the internet?",
+        qVi: "Bạn sử dụng internet bao lâu một lần?",
+        answer: "To be honest, I use the internet almost constantly throughout the day. I need it for academic research, staying in touch with friends and family, consuming news, and entertainment. I'd estimate I spend anywhere from six to eight hours connected daily, though I'm conscious this is quite a lot and I've been trying to set healthier boundaries, particularly around social media.",
+        answerVi: "Thành thật mà nói, tôi sử dụng internet gần như liên tục suốt cả ngày. Tôi cần nó cho nghiên cứu học thuật, giữ liên lạc với bạn bè và gia đình, tiêu thụ tin tức và giải trí. Tôi ước tính khoảng sáu đến tám giờ mỗi ngày kết nối."
+      },
+      {
+        q: "What do you think are the negative effects of using the internet too much?",
+        qVi: "Bạn nghĩ tác động tiêu cực của việc sử dụng internet quá nhiều là gì?",
+        answer: "There are several genuine concerns. The most significant in my view is the impact on attention span — constant exposure to short-form content trains the brain to resist sustained focus, which makes deep reading and complex problem-solving increasingly difficult. I've also noticed that heavy internet use can create a false sense of social connection while actually increasing feelings of loneliness. Sleep disruption from screen use at night is another well-documented problem that affects millions.",
+        answerVi: "Có một số mối lo ngại thực sự. Quan trọng nhất theo tôi là tác động đến khả năng tập trung — tiếp xúc liên tục với nội dung ngắn hình khiến não kháng lại sự tập trung bền vững, làm cho việc đọc sâu và giải quyết vấn đề phức tạp ngày càng khó hơn."
+      },
+    ]
+  },
+  {
+    id: 6, topic: "Health & Sport", topicVi: "Sức khỏe & Thể thao",
+    questions: [
+      {
+        q: "Do you do any sport or physical exercise?",
+        qVi: "Bạn có tập thể thao hay tập thể dục không?",
+        answer: "Yes, I try to stay reasonably active. I go for a run three or four times a week — usually early in the morning before university, which I find sets me up brilliantly for the day. I also do yoga once a week for flexibility and stress relief. Exercise is genuinely non-negotiable for my mental health; I notice a marked difference in my mood and concentration when I skip it.",
+        answerVi: "Vâng, tôi cố gắng duy trì hoạt động hợp lý. Tôi chạy bộ ba hoặc bốn lần một tuần — thường là sáng sớm trước khi đến trường, điều mà tôi thấy giúp mình khởi đầu tuyệt vời cho cả ngày."
+      },
+      {
+        q: "What do you do to stay healthy?",
+        qVi: "Bạn làm gì để giữ sức khỏe?",
+        answer: "I focus on three main things: diet, exercise, and sleep. I try to eat a balanced diet with plenty of vegetables, avoid processed foods, and stay properly hydrated throughout the day. Exercise I've already mentioned. And I'm quite disciplined about getting seven to eight hours of sleep, as I know that's when the body and mind genuinely recover. I also try to meditate for ten minutes each morning, which has noticeably reduced my anxiety levels.",
+        answerVi: "Tôi tập trung vào ba điều chính: chế độ ăn, tập thể dục và giấc ngủ. Tôi cố gắng ăn chế độ cân bằng với nhiều rau xanh, tránh thức ăn chế biến sẵn và giữ đủ nước suốt cả ngày."
+      },
+    ]
+  },
+];
+
+// ===== SPEAKING PART 2 =====
+export const speakingPart2 = [
+  {
+    id: 1,
+    cueCard: "Describe a memorable journey you have taken.",
+    cueCardVi: "Mô tả một chuyến đi đáng nhớ mà bạn đã thực hiện.",
+    prompts: ["Where you went", "How you got there", "What you did there", "Why it was memorable"],
+    promptsVi: ["Bạn đã đi đâu", "Bạn đến đó bằng cách nào", "Bạn đã làm gì ở đó", "Tại sao nó đáng nhớ"],
+    sampleAnswer: {
+      en: "I'd like to talk about a journey I took to Sapa, a stunning mountainous region in northern Vietnam, about two years ago. It was without doubt one of the most memorable experiences of my life.\n\nI travelled there with two of my closest friends. We took an overnight train from Hanoi, which was quite an adventure in itself — we had sleeper berths and watched the lowland landscape gradually give way to dramatic mountain scenery as dawn broke. The journey took about eight hours.\n\nOnce we arrived in Sapa, we spent three days trekking through the rice terraces and ethnic minority villages. The landscape was absolutely breathtaking — cascading green terraces carved into steep mountain slopes, with clouds drifting below us at points. We visited villages of the Hmong and Red Dao communities, where locals welcomed us into their homes, shared meals with us, and showed us traditional crafts like intricate embroidery and silverwork. It was a genuinely humbling cultural exchange.\n\nWhat made this journey particularly memorable was a combination of factors. The natural scenery was unlike anything I had ever witnessed. But more than that, the hospitality and warmth of the local communities profoundly moved me. We were essentially strangers, yet people welcomed us with extraordinary generosity. The trip also pushed me physically — the trekking was demanding — and completing it gave me a real sense of achievement. It reminded me that the most enriching experiences often require stepping outside one's comfort zone.",
+      vi: "Tôi muốn nói về một chuyến đi tôi đã thực hiện đến Sa Pa, một vùng núi tuyệt đẹp ở miền Bắc Việt Nam, khoảng hai năm trước. Đây là một trong những trải nghiệm đáng nhớ nhất của cuộc đời tôi.\n\nTôi đi cùng hai người bạn thân nhất. Chúng tôi đi tàu đêm từ Hà Nội, bản thân đã là một cuộc phiêu lưu — chúng tôi có giường nằm và nhìn cảnh quan vùng đồng bằng dần nhường chỗ cho cảnh núi non hùng vĩ khi bình minh ló dạng.\n\nKhi đến Sa Pa, chúng tôi dành ba ngày trekking qua các ruộng bậc thang và làng bản dân tộc thiểu số. Cảnh quan tuyệt đẹp — những bậc thang xanh tươi được đẽo vào sườn núi dốc, với những đám mây trôi bên dưới chúng tôi tại một số điểm. Chúng tôi thăm làng của người Hmong và Dao Đỏ, nơi người dân địa phương đón chúng tôi vào nhà, chia sẻ bữa ăn và cho chúng tôi xem các nghề thủ công truyền thống."
+    }
+  },
+  {
+    id: 2,
+    cueCard: "Describe a person who has had a great influence on your life.",
+    cueCardVi: "Mô tả một người đã có ảnh hưởng lớn đến cuộc sống của bạn.",
+    prompts: ["Who this person is", "How you know them", "What they have done", "Why they have influenced you"],
+    promptsVi: ["Người này là ai", "Bạn biết họ như thế nào", "Họ đã làm gì", "Tại sao họ ảnh hưởng đến bạn"],
+    sampleAnswer: {
+      en: "I'd like to talk about my secondary school English teacher, Ms. Lan, who had a truly transformative influence on both my academic journey and my broader outlook on life.\n\nI first met her when I was about 14 years old. She was assigned to teach our class English literature, and from our very first lesson, it was clear she was unlike any teacher I'd had before. Rather than simply asking us to memorise texts, she encouraged us to question, debate, and form our own interpretations. She treated us as intelligent young adults with valid perspectives, which was an entirely new experience for me.\n\nWhat she specifically did was introduce me to serious literature and critical thinking. She recommended books that challenged my assumptions about the world — novels about social injustice, biographies of remarkable historical figures, collections of essays by thinkers I'd never encountered. Outside class, she was always available to discuss ideas, and she pushed me to enter essay competitions which, to my considerable surprise, I won.\n\nHer influence has been immense in several respects. She fundamentally shaped my intellectual curiosity and my love of reading, both of which remain central to who I am. More importantly, she taught me the confidence to articulate and defend my views — a skill that has proved invaluable in both academic and professional contexts. She also modelled something I deeply admire: the combination of exceptional professional dedication with genuine human warmth. I aspire to have that same quality in whatever career I pursue.",
+      vi: "Tôi muốn nói về cô giáo tiếng Anh cấp 2 của tôi, cô Lan, người đã có ảnh hưởng thực sự mang tính chuyển đổi đến cả hành trình học thuật lẫn quan điểm rộng hơn của tôi về cuộc sống.\n\nTôi gặp cô lần đầu khi khoảng 14 tuổi. Cô được phân công dạy văn học tiếng Anh cho lớp tôi, và ngay từ bài học đầu tiên, rõ ràng là cô khác với bất kỳ giáo viên nào tôi từng có. Thay vì chỉ yêu cầu chúng tôi học thuộc văn bản, cô khuyến khích chúng tôi đặt câu hỏi, tranh luận và hình thành những diễn giải riêng của mình."
+    }
+  },
+  {
+    id: 3,
+    cueCard: "Describe a skill you learned that has been useful in your life.",
+    cueCardVi: "Mô tả một kỹ năng bạn đã học được hữu ích trong cuộc sống của bạn.",
+    prompts: ["What the skill is", "When and how you learned it", "Who taught you", "How it has been useful"],
+    promptsVi: ["Kỹ năng đó là gì", "Bạn học nó khi nào và như thế nào", "Ai dạy bạn", "Nó hữu ích như thế nào"],
+    sampleAnswer: {
+      en: "I'd like to describe the skill of public speaking, which I learned through a combination of formal training and hard experience, and which has genuinely changed the trajectory of my academic and professional life.\n\nI started developing this skill about three years ago when I joined my university's debate society. I was initially terrified — the prospect of speaking in front of an audience made my hands shake and my mind blank. The society held weekly practice sessions where members would give short prepared speeches and then field questions from the audience. The environment was supportive but also genuinely challenging.\n\nOver the first few months, experienced members coached me on fundamentals: structuring arguments logically, using vocal variety to maintain engagement, managing nervous energy, and thinking on my feet during cross-examination. I also read books on rhetoric and watched recordings of great speakers to understand what makes communication truly compelling.\n\nThe skill has been useful in countless ways. Academically, I'm now able to contribute confidently to seminars and tutorials, which has significantly improved my grades. Professionally, my part-time employer noted my communication skills as a reason for offering me additional responsibilities. Most significantly, perhaps, developing public speaking has built my overall self-confidence in a way that extends far beyond formal presentations — I'm simply more comfortable advocating for myself and my ideas in everyday situations.",
+      vi: "Tôi muốn mô tả kỹ năng nói trước công chúng, kỹ năng tôi học được qua sự kết hợp giữa đào tạo chính thức và kinh nghiệm thực tế, và đã thực sự thay đổi quỹ đạo học thuật và nghề nghiệp của tôi.\n\nTôi bắt đầu phát triển kỹ năng này khoảng ba năm trước khi tham gia câu lạc bộ tranh luận của trường đại học. Ban đầu tôi rất sợ — triển vọng nói trước khán giả khiến tay tôi run và đầu óc trống rỗng."
+    }
+  },
+  {
+    id: 4,
+    cueCard: "Describe a book or film that made a strong impression on you.",
+    cueCardVi: "Mô tả một cuốn sách hoặc bộ phim đã gây ấn tượng mạnh với bạn.",
+    prompts: ["What it was about", "When you read/watched it", "What you liked about it", "Why it made such an impression"],
+    promptsVi: ["Nó nói về điều gì", "Bạn đọc/xem nó khi nào", "Bạn thích điều gì về nó", "Tại sao nó gây ấn tượng như vậy"],
+    sampleAnswer: {
+      en: "I'd like to talk about a novel called 'To Kill a Mockingbird' by Harper Lee, which I read when I was about sixteen and which left a profound and lasting impression on me.\n\nThe story is set in 1930s Alabama in the American South and is narrated by a young girl named Scout Finch. The central plot revolves around her father, Atticus Finch, a lawyer who defends a Black man falsely accused of raping a white woman, despite knowing that a fair verdict is virtually impossible in their deeply racist society. The novel explores themes of racial injustice, moral courage, and the loss of childhood innocence.\n\nWhat immediately struck me was the clarity and moral force of the writing. Harper Lee communicates extraordinarily complex ethical questions through the eyes of a child, which makes them both accessible and emotionally devastating. Atticus Finch became one of the most compelling moral figures I had ever encountered in literature — a man who does what is right not because it is easy or rewarded, but simply because it is right.\n\nThe impression it made was profound for several reasons. It was the first time a novel had forced me to seriously confront questions of systemic injustice and moral courage in ways that felt genuinely urgent rather than historical. It also deepened my belief in the importance of standing up for what is right even when it is costly. In many ways, I think it contributed to my interest in law and social justice, which continue to shape my academic choices today.",
+      vi: "Tôi muốn nói về một cuốn tiểu thuyết có tên 'Giết con chim nhại' của Harper Lee, cuốn sách tôi đọc khi khoảng mười sáu tuổi và đã để lại ấn tượng sâu sắc và lâu dài với tôi.\n\nCâu chuyện diễn ra ở Alabama những năm 1930 và được kể bởi một cô bé tên Scout Finch. Cốt truyện trung tâm xoay quanh cha cô, Atticus Finch, một luật sư bảo vệ một người đàn ông da đen bị buộc tội sai về tội hiếp dâm."
+    }
+  },
+  {
+    id: 5,
+    cueCard: "Describe a time when you helped someone.",
+    cueCardVi: "Mô tả một lần bạn đã giúp đỡ ai đó.",
+    prompts: ["Who you helped", "What the situation was", "How you helped them", "How you felt about it"],
+    promptsVi: ["Bạn đã giúp ai", "Tình huống như thế nào", "Bạn đã giúp họ như thế nào", "Bạn cảm thấy thế nào về điều đó"],
+    sampleAnswer: {
+      en: "I'd like to describe an experience from about a year ago when I helped a classmate who was struggling significantly with a challenging statistics assignment.\n\nThe classmate was a friend named Minh, who had transferred into our programme from a different faculty and hadn't had the prerequisite mathematics background that the rest of us had. We had a major statistics project due in two weeks, worth 30% of our grade, and he was clearly overwhelmed and becoming quite distressed.\n\nI noticed he seemed stressed during a study session and asked if everything was okay. When he explained his difficulties, I suggested we work through the material together over several sessions. I redesigned my own revision approach so that I was explaining concepts to him rather than simply reviewing them myself — which, incidentally, deepened my own understanding considerably.\n\nWe spent about three evenings going through the fundamentals: probability, regression analysis, and hypothesis testing. I tried to explain things using practical examples related to his interests, which seemed to make abstract concepts more concrete. By the final session before the deadline, he had developed enough confidence to complete the assignment independently.\n\nHe ultimately received a good mark on the project. But honestly, what I remember most is how I felt during the process — there was something deeply satisfying about watching someone's confusion gradually turn to comprehension and confidence. It reinforced my belief that teaching others is actually one of the most effective ways of consolidating your own knowledge.",
+      vi: "Tôi muốn mô tả một trải nghiệm khoảng một năm trước khi tôi giúp một bạn học đang gặp khó khăn đáng kể với một bài tập thống kê đầy thách thức.\n\nBạn học đó là Minh, người đã chuyển vào chương trình của chúng tôi từ một khoa khác và không có nền tảng toán học điều kiện tiên quyết mà phần còn lại của chúng tôi có."
+    }
+  },
+];
+
+// ===== SPEAKING PART 3 =====
+export const speakingPart3 = [
+  {
+    id: 1,
+    topic: "Travel & Tourism",
+    topicVi: "Du lịch & Thám hiểm",
+    relatedPart2: "Describe a memorable journey",
+    questions: [
+      {
+        q: "How has tourism changed in your country over the last few decades?",
+        qVi: "Du lịch đã thay đổi như thế nào ở đất nước bạn trong vài thập kỷ qua?",
+        answer: "The transformation has been remarkable. Vietnam, for instance, has gone from receiving fewer than a million international tourists annually in the early 1990s to welcoming nearly 18 million in 2019 before the pandemic. Several factors drove this: the liberalisation of travel restrictions, significant investment in airport infrastructure and hospitality, and growing global awareness of Vietnam's cultural richness and natural beauty. Low-cost airlines have also democratised international travel, making it accessible to a much wider segment of the global population than previously.",
+        answerVi: "Sự biến đổi thật đáng kể. Ví dụ, Việt Nam đã từ việc đón dưới một triệu khách du lịch quốc tế mỗi năm vào đầu những năm 1990 lên gần 18 triệu vào năm 2019 trước đại dịch. Một số yếu tố thúc đẩy điều này: tự do hóa hạn chế đi lại, đầu tư đáng kể vào cơ sở hạ tầng sân bay và khách sạn."
+      },
+      {
+        q: "Do you think mass tourism has more positive or negative effects on host countries?",
+        qVi: "Bạn có nghĩ du lịch đại trà có nhiều tác động tích cực hơn hay tiêu cực hơn đối với các quốc gia chủ nhà?",
+        answer: "I think the net effect is genuinely mixed and depends enormously on how tourism is managed. On the positive side, tourism generates substantial foreign exchange revenues, creates employment across multiple sectors — hospitality, transport, crafts — and can incentivise the preservation of cultural and natural heritage sites. However, poorly managed mass tourism causes significant environmental degradation, drives up local property prices, and can lead to the commodification and distortion of authentic cultural practices for tourist consumption. The key distinction is between sustainable, community-centred tourism and mass exploitation — the latter generating short-term revenues while destroying the very assets that make a destination attractive.",
+        answerVi: "Tôi nghĩ tác động ròng thực sự là hỗn hợp và phụ thuộc rất nhiều vào cách quản lý du lịch. Về mặt tích cực, du lịch tạo ra doanh thu ngoại tệ đáng kể, tạo việc làm trong nhiều lĩnh vực — khách sạn, giao thông, thủ công mỹ nghệ — và có thể khuyến khích bảo tồn các địa điểm di sản văn hóa và thiên nhiên."
+      },
+      {
+        q: "Should governments limit the number of tourists visiting sensitive natural sites?",
+        qVi: "Chính phủ có nên giới hạn số lượng khách du lịch thăm các địa điểm tự nhiên nhạy cảm không?",
+        answer: "Yes, I believe visitor caps and careful management of ecologically sensitive destinations are not just advisable but essential. Sites like Ha Long Bay, Angkor Wat, or the Galapagos Islands are facing genuine ecological and structural damage from tourist overload. The tragedy is essentially one of the commons — each individual visitor causes minimal harm, but collectively the impact is devastating. A responsible approach would involve tiered pricing that generates revenue for conservation while discouraging excessive visitor numbers, combined with strict zoning that concentrates tourist activity away from the most vulnerable ecosystems.",
+        answerVi: "Vâng, tôi tin rằng giới hạn khách và quản lý cẩn thận các điểm đến nhạy cảm về mặt sinh thái không chỉ là khuyên dùng mà còn là thiết yếu. Các địa điểm như Vịnh Hạ Long, Angkor Wat hay Quần đảo Galápagos đang phải đối mặt với thiệt hại sinh thái và cấu trúc thực sự từ tình trạng quá tải du lịch."
+      }
+    ]
+  },
+  {
+    id: 2,
+    topic: "Education & Learning",
+    topicVi: "Giáo dục & Học tập",
+    relatedPart2: "Describe a person who influenced you",
+    questions: [
+      {
+        q: "How important is formal education compared to self-directed learning?",
+        qVi: "Giáo dục chính quy quan trọng như thế nào so với tự học?",
+        answer: "Both serve distinct and largely complementary purposes. Formal education provides structured progression through foundational knowledge, credentials that signal competence to employers, and the social development that comes from learning alongside peers. These are difficult to replicate through self-study alone. However, formal education has significant limitations — curricula can be outdated, standardised assessment struggles to capture diverse forms of intelligence, and the pace rarely accommodates individual learners. Self-directed learning, particularly in the internet age, enables individuals to pursue their genuine interests with greater depth and flexibility. The most intellectually vital people I know combine both: using formal education as a foundation while continuously learning independently beyond their formal training.",
+        answerVi: "Cả hai phục vụ các mục đích riêng biệt và phần lớn bổ sung cho nhau. Giáo dục chính quy cung cấp sự tiến bộ có cấu trúc qua kiến thức nền tảng, bằng cấp thể hiện năng lực với nhà tuyển dụng và sự phát triển xã hội đến từ việc học cùng bạn bè đồng trang lứa."
+      },
+      {
+        q: "What subjects do you think should be taught more in schools?",
+        qVi: "Bạn nghĩ những môn học nào nên được dạy nhiều hơn ở trường?",
+        answer: "There are several conspicuous gaps in most national curricula. Financial literacy — budgeting, understanding debt, investing basics — is extraordinarily underrepresented given its relevance to every adult's life. Critical thinking and media literacy are urgently needed to help young people navigate an information environment saturated with misinformation. Mental health education, including emotional regulation and stress management strategies, is also chronically neglected. And coding and computational thinking are increasingly fundamental skills for participation in a modern economy. The traditional heavy emphasis on rote learning of factual content seems increasingly misaligned with a world where information is instantly searchable but critical analysis remains rare.",
+        answerVi: "Có một số khoảng trống rõ ràng trong hầu hết các chương trình giảng dạy quốc gia. Kiến thức tài chính — lập ngân sách, hiểu về nợ, cơ bản về đầu tư — cực kỳ thiếu đại diện xét theo mức độ liên quan của nó đối với cuộc sống của mỗi người trưởng thành."
+      }
+    ]
+  },
+  {
+    id: 3,
+    topic: "Technology & Society",
+    topicVi: "Công nghệ & Xã hội",
+    relatedPart2: "Describe a piece of technology",
+    questions: [
+      {
+        q: "Do you think artificial intelligence will have a positive or negative impact on employment?",
+        qVi: "Bạn nghĩ trí tuệ nhân tạo sẽ có tác động tích cực hay tiêu cực đến việc làm?",
+        answer: "The honest answer is that it will likely be both, and the balance will depend significantly on how societies manage the transition. AI will undoubtedly automate large categories of routine cognitive work — data processing, customer service, basic legal and medical analysis — displacing significant numbers of workers in these fields. However, historical precedent from previous technological revolutions suggests that new technologies ultimately create more jobs than they destroy, even as they transform the nature of work. The critical challenge is the transition period: ensuring workers have access to retraining and that the productivity gains from AI are distributed broadly rather than concentrated among capital owners and highly skilled elites.",
+        answerVi: "Câu trả lời thành thật là nó có thể là cả hai, và sự cân bằng sẽ phụ thuộc đáng kể vào cách các xã hội quản lý quá trình chuyển đổi. AI chắc chắn sẽ tự động hóa các loại lớn công việc nhận thức thường xuyên — xử lý dữ liệu, dịch vụ khách hàng, phân tích pháp lý và y tế cơ bản."
+      },
+      {
+        q: "How has technology changed the way people socialise?",
+        qVi: "Công nghệ đã thay đổi cách mọi người giao tiếp xã hội như thế nào?",
+        answer: "Technology has fundamentally reshaped social interaction in ways that are simultaneously connecting and fragmenting. On one hand, it has dramatically expanded who we can maintain relationships with — people now routinely maintain meaningful friendships with individuals they met years ago in different countries, which would have been logistically impossible in the pre-digital era. Interest-based online communities connect individuals who would never have encountered each other geographically. On the other hand, digital socialisation can substitute for rather than supplement face-to-face interaction, potentially atrophying the interpersonal skills that deep human relationships require. The quality of connection also differs — an evening of texting, while maintaining a connection, rarely matches the intimacy of a few hours of genuine conversation.",
+        answerVi: "Công nghệ đã định hình lại cơ bản tương tác xã hội theo những cách vừa kết nối vừa phân mảnh đồng thời. Một mặt, nó đã mở rộng đáng kể những người chúng ta có thể duy trì mối quan hệ — mọi người hiện nay thường xuyên duy trì tình bạn có ý nghĩa với những người họ gặp nhiều năm trước ở các quốc gia khác nhau."
+      }
+    ]
+  },
+  {
+    id: 4,
+    topic: "Environment & Sustainability",
+    topicVi: "Môi trường & Bền vững",
+    relatedPart2: "Describe a place in nature",
+    questions: [
+      {
+        q: "Who do you think is most responsible for environmental damage — individuals or corporations?",
+        qVi: "Bạn nghĩ ai chịu trách nhiệm nhiều nhất về thiệt hại môi trường — cá nhân hay các tập đoàn?",
+        answer: "While individual choices certainly matter, I believe the primary responsibility lies with corporations and the governments that regulate them. Just 100 companies are responsible for 71% of global emissions — a statistic that powerfully reframes the dominant narrative placing moral responsibility primarily on individual consumer choices. This framing, which encourages people to focus on personal recycling and dietary choices rather than demanding systemic corporate accountability, has been actively promoted by the fossil fuel industry itself precisely because it deflects regulatory pressure. Individuals cannot meaningfully transition to renewable energy if fossil fuel infrastructure remains dominant, nor can they avoid plastic packaging when it is the default. Systemic change requires corporate accountability and government regulation, not simply moral persuasion of individuals.",
+        answerVi: "Mặc dù lựa chọn cá nhân chắc chắn có ý nghĩa, nhưng tôi tin rằng trách nhiệm chính nằm ở các tập đoàn và các chính phủ quản lý chúng. Chỉ 100 công ty chịu trách nhiệm cho 71% lượng khí thải toàn cầu — một thống kê mạnh mẽ tái định hình câu chuyện thống trị đặt trách nhiệm đạo đức chủ yếu vào lựa chọn tiêu dùng cá nhân."
+      },
+      {
+        q: "Do you think young people today are more or less environmentally conscious than previous generations?",
+        qVi: "Bạn có nghĩ giới trẻ ngày nay có ý thức môi trường nhiều hơn hay ít hơn so với các thế hệ trước?",
+        answer: "The evidence suggests young people today are genuinely more environmentally aware and concerned than previous generations, though awareness and action don't always translate directly. Movements like Fridays for Future, led by young activists like Greta Thunberg, have demonstrated remarkable capacity to mobilise youth around climate issues globally. Survey data consistently shows younger generations rating climate change as among their most urgent concerns. However, there's also a degree of eco-anxiety — a paralysing awareness of the scale of environmental problems without the sense of agency to address them. Converting this awareness into sustained behavioural and political action remains the critical challenge for this generation.",
+        answerVi: "Bằng chứng cho thấy giới trẻ ngày nay thực sự có ý thức và quan tâm đến môi trường hơn các thế hệ trước, mặc dù nhận thức và hành động không phải lúc nào cũng chuyển hóa trực tiếp. Các phong trào như Fridays for Future, được lãnh đạo bởi các nhà hoạt động trẻ như Greta Thunberg, đã chứng minh khả năng đáng kể để huy động giới trẻ xung quanh các vấn đề khí hậu toàn cầu."
+      }
+    ]
+  },
+  {
+    id: 5,
+    topic: "Work & Career",
+    topicVi: "Công việc & Nghề nghiệp",
+    relatedPart2: "Describe a goal you achieved",
+    questions: [
+      {
+        q: "How important is job satisfaction compared to salary?",
+        qVi: "Sự hài lòng công việc quan trọng như thế nào so với mức lương?",
+        answer: "Research in motivational psychology consistently demonstrates that beyond a certain income threshold sufficient to meet basic needs and provide modest financial security, additional salary increases produce diminishing improvements in well-being, while intrinsic factors — meaningful work, autonomy, mastery, and positive relationships — are the primary drivers of sustained job satisfaction and life satisfaction. Studies of lottery winners and people who pursue high-earning but unfulfilling careers illustrate this well: material wealth beyond a point rarely correlates with happiness. That said, I want to avoid romanticising financial insecurity — adequate compensation is a prerequisite for job satisfaction, not a substitute for it.",
+        answerVi: "Nghiên cứu tâm lý học động lực liên tục chứng minh rằng vượt qua một ngưỡng thu nhập nhất định đủ để đáp ứng nhu cầu cơ bản và cung cấp an ninh tài chính khiêm tốn, tăng lương thêm tạo ra những cải thiện giảm dần trong hạnh phúc, trong khi các yếu tố nội tại — công việc có ý nghĩa, quyền tự chủ, sự thành thạo và mối quan hệ tích cực — là các động lực chính của sự hài lòng công việc và hài lòng cuộc sống bền vững."
+      },
+      {
+        q: "Do you think remote working will become the norm in the future?",
+        qVi: "Bạn có nghĩ làm việc từ xa sẽ trở thành chuẩn mực trong tương lai không?",
+        answer: "I think we're heading toward a predominantly hybrid model rather than fully remote work becoming the default. The pandemic demonstrated that many knowledge-based jobs can be performed remotely with minimal productivity loss — and in some cases, with gains in focused individual work. However, it also revealed that collaboration, mentorship, organisational culture, and spontaneous creative exchange are significantly harder to replicate in purely remote environments. Most organisations will likely settle on arrangements requiring a few days of office presence weekly — enough to maintain social cohesion and collaborative working, while preserving the flexibility and autonomy that employees now widely expect. Fully remote work will remain viable for certain roles and individuals but is unlikely to become universal.",
+        answerVi: "Tôi nghĩ chúng ta đang hướng đến mô hình kết hợp chủ yếu hơn là làm việc hoàn toàn từ xa trở thành mặc định. Đại dịch đã chứng minh rằng nhiều công việc dựa trên kiến thức có thể được thực hiện từ xa với tổn thất năng suất tối thiểu — và trong một số trường hợp, với lợi ích trong công việc cá nhân tập trung."
+      }
+    ]
+  },
+];
+
+export default { speakingPart1, speakingPart2, speakingPart3 };

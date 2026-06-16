@@ -1,0 +1,424 @@
+export const writingTask2Topics = [
+  {
+    id: 1,
+    title: "Technology & Society",
+    titleVi: "Công nghệ & Xã hội",
+    type: "Opinion (Agree/Disagree)",
+    typeVi: "Quan điểm (Đồng ý/Không đồng ý)",
+    prompt: "Technology has made our lives more convenient but has also made us more isolated from one another. To what extent do you agree or disagree with this statement?",
+    promptVi: "Công nghệ đã làm cho cuộc sống của chúng ta tiện lợi hơn nhưng cũng khiến chúng ta cô lập nhau hơn. Bạn đồng ý hay không đồng ý với nhận định này ở mức độ nào?",
+    template: "Partially agree",
+    essay: {
+      introduction: {
+        en: "In the digital age, technology has undeniably transformed every facet of human existence, offering unprecedented convenience while simultaneously raising concerns about social connectivity. While I acknowledge that technology can foster isolation in some contexts, I believe this view is an oversimplification, as digital tools also serve as powerful bridges that connect people across vast distances.",
+        vi: "Trong thời đại kỹ thuật số, công nghệ không thể phủ nhận đã biến đổi mọi khía cạnh của sự tồn tại con người, mang lại sự tiện lợi chưa từng có trong khi đồng thời làm dấy lên mối lo ngại về kết nối xã hội. Mặc dù tôi thừa nhận rằng công nghệ có thể thúc đẩy sự cô lập trong một số bối cảnh, nhưng tôi tin rằng quan điểm này là sự đơn giản hóa quá mức, vì các công cụ kỹ thuật số cũng là những cầu nối mạnh mẽ kết nối mọi người trên những khoảng cách xa."
+      },
+      body1: {
+        en: "On the one hand, there is compelling evidence that excessive technology use erodes face-to-face social bonds. The proliferation of smartphones has transformed social gatherings into occasions where individuals sit together yet remain absorbed in their own screens, a phenomenon sociologists call 'phubbing.' Moreover, social media platforms, despite their name, have been shown to generate feelings of loneliness and inadequacy through constant exposure to curated, idealized portrayals of others' lives. Studies conducted by the American Psychological Association indicate a strong correlation between heavy social media use and increased rates of depression and social anxiety, particularly among adolescents.",
+        vi: "Một mặt, có bằng chứng thuyết phục rằng việc sử dụng công nghệ quá mức làm xói mòn các mối quan hệ xã hội trực tiếp. Sự phổ biến của điện thoại thông minh đã biến các cuộc tụ họp xã hội thành những dịp mà mọi người ngồi cùng nhau nhưng vẫn chìm đắm trong màn hình của họ, một hiện tượng mà các nhà xã hội học gọi là 'phubbing'. Hơn nữa, các nền tảng mạng xã hội, dù có tên như vậy, đã được chứng minh là tạo ra cảm giác cô đơn và thiếu tự tin thông qua việc tiếp xúc liên tục với những hình ảnh cuộc sống lý tưởng hóa, được dàn dựng của người khác."
+      },
+      body2: {
+        en: "On the other hand, technology has demonstrably strengthened human connections across geographical and cultural boundaries. Video calling platforms such as Zoom and FaceTime enable families separated by continents to maintain intimate daily contact that would have been impossible a generation ago. Furthermore, online communities provide vital social lifelines for individuals who might otherwise be profoundly isolated, including those with disabilities, social anxiety, or who live in remote areas. The COVID-19 pandemic powerfully illustrated this point: technology enabled billions of people to sustain meaningful relationships, work collaboratively, and access healthcare during a period of unprecedented physical isolation.",
+        vi: "Mặt khác, công nghệ đã chứng minh được rằng nó tăng cường các kết nối con người vượt qua ranh giới địa lý và văn hóa. Các nền tảng gọi video như Zoom và FaceTime cho phép các gia đình bị chia cắt bởi lục địa duy trì liên lạc hàng ngày thân thiết, điều mà một thế hệ trước đây là không thể. Hơn nữa, các cộng đồng trực tuyến cung cấp những phao cứu sinh xã hội quan trọng cho những người có thể bị cô lập sâu sắc, bao gồm những người khuyết tật, lo lắng xã hội, hoặc sống ở vùng xa xôi."
+      },
+      conclusion: {
+        en: "In conclusion, while technology undoubtedly presents risks of social isolation when misused or overused, it would be erroneous to characterize it as inherently isolating. The critical factor lies not in the technology itself but in how consciously and intentionally we choose to employ it. With mindful usage, technology can and does serve as a powerful vehicle for human connection rather than a barrier to it.",
+        vi: "Tóm lại, mặc dù công nghệ chắc chắn đặt ra rủi ro cô lập xã hội khi bị sử dụng sai mục đích hoặc quá mức, nhưng sẽ là sai lầm khi mô tả nó là vốn dĩ cô lập. Yếu tố quan trọng không nằm ở bản thân công nghệ mà là ở cách chúng ta lựa chọn sử dụng nó một cách có ý thức và có chủ đích."
+      }
+    },
+    vocabulary: [
+      { word: "proliferation", meaning: "sự lan rộng, phổ biến" },
+      { word: "erode", meaning: "xói mòn, làm suy yếu dần" },
+      { word: "curated", meaning: "được chọn lọc, dàn dựng cẩn thận" },
+      { word: "correlation", meaning: "sự tương quan" },
+      { word: "unprecedented", meaning: "chưa từng có tiền lệ" },
+    ],
+    structures: [
+      "On the one hand, ... On the other hand, ...",
+      "While I acknowledge that ..., I believe ...",
+      "There is compelling evidence that ...",
+      "Studies indicate a strong correlation between X and Y",
+      "It would be erroneous to characterize X as ...",
+    ]
+  },
+  {
+    id: 2,
+    title: "Education: Online vs Traditional",
+    titleVi: "Giáo dục: Trực tuyến vs Truyền thống",
+    type: "Discussion (Both Views + Opinion)",
+    typeVi: "Thảo luận (Hai quan điểm + Ý kiến cá nhân)",
+    prompt: "Some people believe that online education is just as effective as traditional face-to-face learning, while others argue that classroom-based instruction is superior. Discuss both views and give your own opinion.",
+    promptVi: "Một số người cho rằng giáo dục trực tuyến hiệu quả không kém gì học trực tiếp truyền thống, trong khi những người khác lập luận rằng học tập tại lớp vẫn vượt trội hơn. Thảo luận cả hai quan điểm và đưa ra ý kiến của bạn.",
+    template: "Discussion + Opinion",
+    essay: {
+      introduction: {
+        en: "The rapid expansion of digital technology has prompted a fundamental debate in education: whether online learning can effectively replace the traditional classroom experience. Proponents of each model present persuasive arguments, and this essay will examine both perspectives before concluding that a hybrid approach represents the most effective path forward.",
+        vi: "Sự mở rộng nhanh chóng của công nghệ kỹ thuật số đã thúc đẩy một cuộc tranh luận cơ bản trong giáo dục: liệu học trực tuyến có thể thay thế hiệu quả trải nghiệm lớp học truyền thống hay không. Những người ủng hộ mỗi mô hình đều đưa ra những lập luận thuyết phục, và bài luận này sẽ xem xét cả hai quan điểm trước khi kết luận rằng cách tiếp cận kết hợp là con đường hiệu quả nhất."
+      },
+      body1: {
+        en: "Those who advocate for online education highlight its remarkable accessibility and flexibility. Students from remote areas or developing nations can access world-class courses that would otherwise be geographically or financially out of reach. Furthermore, the self-paced nature of online learning accommodates diverse learning styles and personal schedules, allowing working professionals to pursue education without sacrificing their careers. Platforms like Coursera and edX have demonstrated that rigorous academic content can be delivered digitally with measurable outcomes.",
+        vi: "Những người ủng hộ giáo dục trực tuyến nhấn mạnh khả năng tiếp cận và linh hoạt đáng kể của nó. Học sinh từ các vùng xa xôi hoặc các nước đang phát triển có thể tiếp cận các khóa học đẳng cấp thế giới mà nếu không sẽ nằm ngoài tầm với về mặt địa lý hoặc tài chính. Hơn nữa, tính năng tự học theo tốc độ của học trực tuyến phù hợp với các phong cách học tập và lịch trình cá nhân đa dạng."
+      },
+      body2: {
+        en: "Conversely, advocates of traditional education emphasize the irreplaceable value of direct human interaction. The classroom environment fosters collaborative skills, critical debate, and social development that are difficult to replicate online. Teachers can instantly gauge student comprehension, adjust their pace accordingly, and provide the mentorship and motivation that profoundly influence academic outcomes. Research consistently shows that students in traditional settings demonstrate stronger retention rates and interpersonal skills compared to those in purely online environments.",
+        vi: "Ngược lại, những người ủng hộ giáo dục truyền thống nhấn mạnh giá trị không thể thay thế của sự tương tác trực tiếp giữa con người. Môi trường lớp học nuôi dưỡng kỹ năng hợp tác, tranh luận phê phán và phát triển xã hội mà khó có thể tái tạo trực tuyến. Giáo viên có thể ngay lập tức đánh giá mức độ hiểu bài của học sinh, điều chỉnh tốc độ dạy phù hợp và cung cấp sự hướng dẫn và động lực có ảnh hưởng sâu sắc đến kết quả học tập."
+      },
+      conclusion: {
+        en: "In my view, rather than treating these as mutually exclusive options, educational institutions should embrace a blended model that harnesses the flexibility of online learning while preserving the irreplaceable human dimensions of traditional education. The most effective 21st-century education will be one that strategically combines both approaches to serve diverse learner needs.",
+        vi: "Theo quan điểm của tôi, thay vì coi đây là những lựa chọn loại trừ lẫn nhau, các cơ sở giáo dục nên áp dụng mô hình kết hợp khai thác sự linh hoạt của học trực tuyến trong khi vẫn bảo tồn các chiều cạnh con người không thể thay thế của giáo dục truyền thống."
+      }
+    },
+    vocabulary: [
+      { word: "blended learning", meaning: "học kết hợp (online + offline)" },
+      { word: "self-paced", meaning: "tự học theo tốc độ cá nhân" },
+      { word: "retention rate", meaning: "tỷ lệ ghi nhớ/giữ lại kiến thức" },
+      { word: "gauge", meaning: "đánh giá, đo lường" },
+      { word: "harness", meaning: "khai thác, tận dụng" },
+    ],
+    structures: [
+      "Those who advocate for X highlight ...",
+      "Conversely, advocates of Y emphasize ...",
+      "Research consistently shows that ...",
+      "Rather than treating these as mutually exclusive, ...",
+      "In my view, ... should embrace ...",
+    ]
+  },
+  {
+    id: 3,
+    title: "Environment & Climate Change",
+    titleVi: "Môi trường & Biến đổi khí hậu",
+    type: "Problem & Solution",
+    typeVi: "Vấn đề & Giải pháp",
+    prompt: "Climate change is one of the most serious threats facing humanity today. What are the main causes of climate change and what measures can individuals and governments take to address this problem?",
+    promptVi: "Biến đổi khí hậu là một trong những mối đe dọa nghiêm trọng nhất mà nhân loại đang phải đối mặt ngày nay. Nguyên nhân chính của biến đổi khí hậu là gì và các cá nhân và chính phủ có thể thực hiện những biện pháp nào để giải quyết vấn đề này?",
+    template: "Problem-Solution",
+    essay: {
+      introduction: {
+        en: "Climate change represents arguably the most pressing existential challenge of the 21st century, threatening ecosystems, economies, and human civilisation on an unprecedented scale. This essay will examine the principal drivers of this crisis before proposing concrete measures at both the individual and governmental levels that could meaningfully mitigate its impact.",
+        vi: "Biến đổi khí hậu đại diện cho thách thức tồn tại cấp bách nhất của thế kỷ 21, đe dọa các hệ sinh thái, nền kinh tế và nền văn minh nhân loại ở quy mô chưa từng có. Bài luận này sẽ xem xét các nguyên nhân chính của cuộc khủng hoảng này trước khi đề xuất các biện pháp cụ thể ở cả cấp độ cá nhân và chính phủ có thể giảm thiểu tác động của nó một cách có ý nghĩa."
+      },
+      body1: {
+        en: "The primary cause of contemporary climate change is the anthropogenic release of greenhouse gases, most notably carbon dioxide and methane. The combustion of fossil fuels for energy production, transportation, and industrial manufacturing accounts for approximately 75% of global greenhouse gas emissions. Deforestation compounds this problem significantly: forests that once absorbed atmospheric carbon are cleared at alarming rates to satisfy growing demands for agricultural land and timber. Additionally, intensive livestock farming releases substantial quantities of methane, a greenhouse gas with a warming potential roughly 25 times greater than carbon dioxide over a century.",
+        vi: "Nguyên nhân chính của biến đổi khí hậu hiện đại là sự phát thải khí nhà kính do con người gây ra, đáng chú ý nhất là carbon dioxide và metan. Việc đốt nhiên liệu hóa thạch để sản xuất năng lượng, vận tải và sản xuất công nghiệp chiếm khoảng 75% lượng khí thải nhà kính toàn cầu. Nạn phá rừng làm phức tạp thêm vấn đề này đáng kể: những khu rừng từng hấp thụ carbon khí quyển bị phá bỏ ở mức độ đáng báo động."
+      },
+      body2: {
+        en: "Addressing climate change requires coordinated action across multiple levels. Individuals can make meaningful contributions by transitioning to plant-based diets, reducing air travel, and choosing renewable energy providers. Critically, however, systemic solutions require decisive government intervention. Policymakers should implement robust carbon pricing mechanisms that internalise the environmental costs of fossil fuel use, incentivising businesses to innovate sustainable alternatives. Substantial investment in renewable energy infrastructure—particularly wind, solar, and green hydrogen—is essential to facilitating a just transition away from fossil fuels without disproportionately burdening lower-income communities.",
+        vi: "Giải quyết biến đổi khí hậu đòi hỏi hành động phối hợp trên nhiều cấp độ. Các cá nhân có thể đóng góp có ý nghĩa bằng cách chuyển sang chế độ ăn có nguồn gốc thực vật, giảm đi máy bay và chọn các nhà cung cấp năng lượng tái tạo. Tuy nhiên, quan trọng hơn, các giải pháp mang tính hệ thống đòi hỏi sự can thiệp quyết đoán của chính phủ thông qua cơ chế định giá carbon mạnh mẽ."
+      },
+      conclusion: {
+        en: "In conclusion, climate change is fundamentally a consequence of unsustainable human activity, primarily the burning of fossil fuels and deforestation. Reversing this trajectory demands both individual behavioural change and ambitious, coordinated governmental policy. While the challenge is formidable, history demonstrates that humanity is capable of extraordinary collective action when the will exists.",
+        vi: "Tóm lại, biến đổi khí hậu về cơ bản là hệ quả của các hoạt động con người không bền vững, chủ yếu là đốt nhiên liệu hóa thạch và phá rừng. Đảo ngược quỹ đạo này đòi hỏi cả sự thay đổi hành vi cá nhân lẫn chính sách chính phủ phối hợp tham vọng."
+      }
+    },
+    vocabulary: [
+      { word: "anthropogenic", meaning: "do con người gây ra" },
+      { word: "greenhouse gases", meaning: "khí nhà kính" },
+      { word: "carbon pricing", meaning: "định giá carbon" },
+      { word: "just transition", meaning: "quá trình chuyển đổi công bằng" },
+      { word: "internalise costs", meaning: "nội hoá chi phí ngoại tác" },
+    ],
+    structures: [
+      "X represents arguably the most pressing challenge of ...",
+      "The primary cause of X is the Y, most notably ...",
+      "X accounts for approximately Y% of ...",
+      "Addressing X requires coordinated action across ...",
+      "History demonstrates that humanity is capable of ...",
+    ]
+  },
+  {
+    id: 4,
+    title: "Work-Life Balance & Health",
+    titleVi: "Cân bằng Công việc-Cuộc sống & Sức khỏe",
+    type: "Opinion (Agree/Disagree)",
+    typeVi: "Quan điểm (Đồng ý/Không đồng ý)",
+    prompt: "In many countries, people are working longer hours than ever before. Some believe this is necessary for economic success, while others argue it has serious negative consequences for individuals and society. Discuss and give your opinion.",
+    promptVi: "Ở nhiều quốc gia, người ta đang làm việc nhiều giờ hơn bao giờ hết. Một số người cho rằng điều này là cần thiết cho thành công kinh tế, trong khi những người khác lập luận rằng nó có những hậu quả tiêu cực nghiêm trọng đối với cá nhân và xã hội. Thảo luận và đưa ra ý kiến của bạn.",
+    template: "Discussion + Opinion",
+    essay: {
+      introduction: {
+        en: "The modern workplace, driven by globalisation and relentless technological connectivity, has blurred the boundaries between professional and personal life, leading many to work longer hours than previous generations. While proponents argue that extended working hours fuel economic productivity, I contend that this trend inflicts serious harm on individual well-being and social cohesion, ultimately undermining the very productivity it purports to enhance.",
+        vi: "Nơi làm việc hiện đại, được thúc đẩy bởi toàn cầu hóa và kết nối công nghệ không ngừng, đã làm mờ ranh giới giữa cuộc sống nghề nghiệp và cá nhân, khiến nhiều người làm việc nhiều giờ hơn các thế hệ trước. Mặc dù những người ủng hộ lập luận rằng giờ làm việc kéo dài thúc đẩy năng suất kinh tế, tôi cho rằng xu hướng này gây hại nghiêm trọng cho sức khỏe cá nhân và sự gắn kết xã hội."
+      },
+      body1: {
+        en: "The economic argument for long working hours rests on the assumption that more hours equate to greater output. In competitive industries such as finance, law, and technology, organisations often expect employees to work 60-80 hours weekly, viewing this as a prerequisite for career advancement and organisational success. Proponents argue that longer hours allow companies to meet deadlines, outperform competitors, and drive the innovation that ultimately generates wealth and employment opportunities.",
+        vi: "Lập luận kinh tế cho giờ làm việc dài dựa trên giả định rằng nhiều giờ hơn đồng nghĩa với sản lượng lớn hơn. Trong các ngành cạnh tranh như tài chính, luật và công nghệ, các tổ chức thường kỳ vọng nhân viên làm việc 60-80 giờ mỗi tuần, coi đây là điều kiện tiên quyết cho sự thăng tiến nghề nghiệp và thành công của tổ chức."
+      },
+      body2: {
+        en: "However, extensive research reveals that chronic overwork is profoundly counterproductive. Beyond a threshold of approximately 50 hours per week, cognitive performance, creativity, and decision-making capacity decline sharply, resulting in diminishing returns despite additional hours invested. More significantly, overwork generates a public health crisis: elevated rates of cardiovascular disease, mental health disorders, and burnout impose enormous costs on healthcare systems and reduce long-term workforce productivity. Countries with shorter working cultures, such as Denmark and the Netherlands, consistently rank among the world's most productive and innovative economies.",
+        vi: "Tuy nhiên, nghiên cứu rộng rãi cho thấy làm việc quá sức mãn tính là phản tác dụng sâu sắc. Vượt qua ngưỡng khoảng 50 giờ mỗi tuần, hiệu suất nhận thức, sáng tạo và khả năng ra quyết định giảm mạnh. Nghiêm trọng hơn, làm việc quá sức tạo ra một cuộc khủng hoảng sức khỏe cộng đồng với tỷ lệ bệnh tim mạch, rối loạn sức khỏe tâm thần và kiệt sức cao hơn."
+      },
+      conclusion: {
+        en: "In conclusion, while the economic case for extended working hours is superficially compelling, the evidence overwhelmingly suggests that overwork is both personally destructive and economically irrational. Governments and employers should prioritise policies that promote sustainable working practices, recognising that human well-being and economic vitality are complementary rather than competing goals.",
+        vi: "Tóm lại, mặc dù lập luận kinh tế cho giờ làm việc kéo dài có vẻ thuyết phục bề ngoài, bằng chứng áp đảo cho thấy làm việc quá sức vừa gây hại cá nhân vừa phi lý về mặt kinh tế. Các chính phủ và người sử dụng lao động nên ưu tiên các chính sách thúc đẩy thực hành làm việc bền vững."
+      }
+    },
+    vocabulary: [
+      { word: "burnout", meaning: "kiệt sức (do áp lực công việc)" },
+      { word: "diminishing returns", meaning: "lợi nhuận giảm dần" },
+      { word: "cognitive performance", meaning: "hiệu suất nhận thức" },
+      { word: "overwork", meaning: "làm việc quá sức" },
+      { word: "counterproductive", meaning: "phản tác dụng" },
+    ],
+    structures: [
+      "The argument for X rests on the assumption that ...",
+      "Beyond a threshold of ..., X declines sharply",
+      "Research reveals that X is profoundly counterproductive",
+      "Countries with X consistently rank among the world's most ...",
+      "X and Y are complementary rather than competing goals",
+    ]
+  },
+  {
+    id: 5,
+    title: "Crime & Punishment",
+    titleVi: "Tội phạm & Trừng phạt",
+    type: "Discussion (Both Views + Opinion)",
+    typeVi: "Thảo luận (Hai quan điểm + Ý kiến cá nhân)",
+    prompt: "Some people believe that the only effective way to reduce crime is to give longer prison sentences. Others, however, think there are better alternative methods. Discuss both views and give your opinion.",
+    promptVi: "Một số người tin rằng cách duy nhất hiệu quả để giảm tội phạm là đưa ra các bản án tù dài hơn. Tuy nhiên, những người khác nghĩ rằng có những phương pháp thay thế tốt hơn. Thảo luận cả hai quan điểm và đưa ra ý kiến của bạn.",
+    template: "Discussion + Opinion",
+    essay: {
+      introduction: {
+        en: "The question of how best to reduce crime sits at the intersection of justice, psychology, and public policy. The debate between punitive incarceration and rehabilitative alternatives reflects fundamentally different philosophies about human nature and the purpose of criminal justice. This essay examines both perspectives before arguing that evidence-based rehabilitative approaches offer more sustainable crime reduction.",
+        vi: "Câu hỏi làm thế nào để giảm tội phạm tốt nhất nằm ở giao điểm của công lý, tâm lý học và chính sách công. Cuộc tranh luận giữa giam cầm trừng phạt và các giải pháp thay thế phục hồi phản ánh những triết lý về bản chất con người và mục đích tư pháp hình sự cơ bản khác nhau."
+      },
+      body1: {
+        en: "Proponents of longer prison sentences argue that incarceration serves a dual purpose: deterrence and incapacitation. The prospect of a lengthy prison term, they contend, dissuades potential offenders from committing crimes, while removing convicted criminals from society protects communities from further harm. In jurisdictions with mandatory minimum sentencing, such as the United States, supporters claim that incarceration rates correlate with periods of declining crime statistics, lending apparent credibility to the punitive approach.",
+        vi: "Những người ủng hộ bản án tù dài hơn lập luận rằng giam cầm phục vụ mục đích kép: răn đe và vô hiệu hóa. Viễn cảnh về một bản án tù dài, họ lập luận, ngăn cản những người phạm tội tiềm năng thực hiện tội phạm, trong khi loại bỏ tội phạm đã kết án khỏi xã hội bảo vệ cộng đồng khỏi thiệt hại thêm."
+      },
+      body2: {
+        en: "However, the evidence for the deterrent effect of longer sentences is remarkably weak. Research consistently demonstrates that it is the certainty of punishment, not its severity, that most effectively deters criminal behaviour. Moreover, overcrowded prisons frequently function as 'schools for crime,' where first-time offenders are socialised into criminal networks. By contrast, rehabilitation-focused approaches—including vocational training, psychological counselling, and restorative justice programs—address the root causes of criminal behaviour such as poverty, trauma, and addiction, yielding significantly lower reoffending rates at considerably lower public cost.",
+        vi: "Tuy nhiên, bằng chứng về hiệu ứng răn đe của bản án dài hơn là cực kỳ yếu. Nghiên cứu liên tục chứng minh rằng chính sự chắc chắn của hình phạt, không phải mức độ nghiêm khắc của nó, mới là điều răn đe hành vi tội phạm hiệu quả nhất. Ngược lại, các cách tiếp cận tập trung vào phục hồi bao gồm đào tạo nghề, tư vấn tâm lý và các chương trình công lý phục hồi giải quyết các nguyên nhân gốc rễ của hành vi tội phạm."
+      },
+      conclusion: {
+        en: "In my view, while incarceration remains necessary for violent and dangerous offenders, sole reliance on lengthy sentences as a crime reduction strategy is both ineffective and economically wasteful. A more rational criminal justice system would prioritise rehabilitation, early intervention, and addressing the social determinants of crime, thereby breaking the cycle of reoffending and building safer communities.",
+        vi: "Theo quan điểm của tôi, mặc dù giam cầm vẫn cần thiết đối với những người phạm tội bạo lực và nguy hiểm, việc chỉ dựa vào các bản án dài như một chiến lược giảm tội phạm vừa không hiệu quả vừa lãng phí kinh tế."
+      }
+    },
+    vocabulary: [
+      { word: "deterrence", meaning: "sự răn đe" },
+      { word: "incapacitation", meaning: "sự vô hiệu hóa (qua giam cầm)" },
+      { word: "recidivism / reoffending", meaning: "tái phạm tội" },
+      { word: "restorative justice", meaning: "công lý phục hồi" },
+      { word: "mandatory minimum", meaning: "mức tối thiểu bắt buộc (bản án)" },
+    ],
+    structures: [
+      "X sits at the intersection of A, B, and C",
+      "X serves a dual purpose: A and B",
+      "The evidence for X is remarkably weak",
+      "Research consistently demonstrates that ...",
+      "By contrast, Y-focused approaches ... yield significantly lower X",
+    ]
+  },
+  {
+    id: 6,
+    title: "Globalisation & Cultural Identity",
+    titleVi: "Toàn cầu hoá & Bản sắc văn hóa",
+    type: "Discussion (Both Views + Opinion)",
+    typeVi: "Thảo luận (Hai quan điểm + Ý kiến cá nhân)",
+    prompt: "Globalisation has led to the dominance of Western culture, threatening the survival of local cultures and languages. To what extent do you agree or disagree?",
+    promptVi: "Toàn cầu hóa đã dẫn đến sự thống trị của văn hóa phương Tây, đe dọa sự tồn tại của các nền văn hóa và ngôn ngữ địa phương. Bạn đồng ý hay không đồng ý ở mức độ nào?",
+    template: "Partially agree",
+    essay: {
+      introduction: {
+        en: "Globalisation, driven by international trade, mass media, and digital connectivity, has dramatically accelerated cross-cultural exchange. Critics argue that this process disproportionately amplifies Western cultural influence, eroding linguistic diversity and traditional practices worldwide. While this concern has genuine merit, I would argue that the relationship between globalisation and cultural identity is considerably more nuanced than simple cultural imperialism.",
+        vi: "Toàn cầu hóa, được thúc đẩy bởi thương mại quốc tế, truyền thông đại chúng và kết nối kỹ thuật số, đã tăng tốc đáng kể sự giao lưu văn hóa xuyên biên giới. Các nhà phê bình lập luận rằng quá trình này khuếch đại không cân xứng ảnh hưởng văn hóa phương Tây, làm xói mòn sự đa dạng ngôn ngữ và các thực hành truyền thống trên toàn thế giới."
+      },
+      body1: {
+        en: "There is substantial evidence that Western cultural products have achieved disproportionate global reach. Hollywood films dominate cinemas worldwide; English functions increasingly as the global lingua franca of business, science, and popular culture; and fast-food chains have supplanted traditional dining practices in countless communities. The UNESCO Atlas of the World's Languages in Danger reports that approximately one language disappears every two weeks, with English and other dominant languages frequently cited as contributing factors. Indigenous communities from the Amazon to the Arctic have watched traditional knowledge systems and ceremonial practices fade as younger generations embrace globalised lifestyles.",
+        vi: "Có bằng chứng đáng kể rằng các sản phẩm văn hóa phương Tây đã đạt được tầm phủ sóng toàn cầu không cân xứng. Phim Hollywood thống trị các rạp chiếu phim trên toàn thế giới; tiếng Anh ngày càng đóng vai trò là ngôn ngữ chung toàn cầu trong kinh doanh, khoa học và văn hóa đại chúng."
+      },
+      body2: {
+        en: "Nevertheless, globalisation does not operate as a one-directional force of cultural homogenisation. Cultural exchange is, in many respects, reciprocal: Korean pop music (K-pop) has captivated audiences across Europe and the Americas; Japanese anime shapes global entertainment; and culinary traditions from India, Mexico, and the Middle East have become woven into the daily lives of Western consumers. Moreover, digital technology has paradoxically empowered cultural minorities to preserve, promote, and disseminate their heritage globally, reaching audiences that would have been impossible to access a generation ago.",
+        vi: "Tuy nhiên, toàn cầu hóa không hoạt động như một lực lượng đồng nhất hóa văn hóa một chiều. Trao đổi văn hóa, về nhiều mặt, là có đi có lại: nhạc pop Hàn Quốc (K-pop) đã thu hút khán giả trên khắp châu Âu và châu Mỹ; anime Nhật Bản định hình nền giải trí toàn cầu."
+      },
+      conclusion: {
+        en: "In conclusion, while globalisation undeniably creates asymmetric pressures that threaten minority languages and cultures, characterising it as straightforward Western cultural imperialism overlooks the genuine complexity of contemporary cultural exchange. The appropriate response is not to reject globalisation but to actively support policies that promote multilingualism, fund cultural preservation, and ensure that globalisation enables cultural dialogue rather than monologue.",
+        vi: "Tóm lại, mặc dù toàn cầu hóa chắc chắn tạo ra những áp lực bất đối xứng đe dọa các ngôn ngữ và văn hóa thiểu số, nhưng việc mô tả nó như chủ nghĩa đế quốc văn hóa phương Tây đơn giản đã bỏ qua sự phức tạp thực sự của trao đổi văn hóa đương đại."
+      }
+    },
+    vocabulary: [
+      { word: "lingua franca", meaning: "ngôn ngữ chung (dùng giữa các dân tộc khác nhau)" },
+      { word: "homogenisation", meaning: "sự đồng nhất hóa" },
+      { word: "cultural imperialism", meaning: "chủ nghĩa đế quốc văn hóa" },
+      { word: "asymmetric", meaning: "bất đối xứng" },
+      { word: "reciprocal", meaning: "có đi có lại, tương hỗ" },
+    ],
+    structures: [
+      "Critics argue that this process disproportionately ...",
+      "There is substantial evidence that ...",
+      "Nevertheless, X does not operate as ...",
+      "X has paradoxically empowered ...",
+      "The appropriate response is not to X but to Y",
+    ]
+  },
+  {
+    id: 7,
+    title: "Government & Free Healthcare",
+    titleVi: "Chính phủ & Y tế miễn phí",
+    type: "Opinion (Agree/Disagree)",
+    typeVi: "Quan điểm (Đồng ý/Không đồng ý)",
+    prompt: "Healthcare should be provided free of charge by the government and funded through taxation. To what extent do you agree or disagree with this statement?",
+    promptVi: "Chăm sóc sức khỏe nên được chính phủ cung cấp miễn phí và được tài trợ qua thuế. Bạn đồng ý hay không đồng ý ở mức độ nào?",
+    template: "Strong agreement",
+    essay: {
+      introduction: {
+        en: "Access to healthcare represents one of the most fundamental aspects of human dignity and social justice. The question of whether governments bear the responsibility to provide universal, publicly funded healthcare is among the most consequential policy debates of our time. I strongly believe that healthcare should be a universal public service, freely available to all citizens regardless of their economic circumstances.",
+        vi: "Tiếp cận chăm sóc sức khỏe đại diện cho một trong những khía cạnh cơ bản nhất của phẩm giá con người và công bằng xã hội. Câu hỏi liệu các chính phủ có trách nhiệm cung cấp dịch vụ chăm sóc sức khỏe phổ quát, được tài trợ công là một trong những cuộc tranh luận chính sách quan trọng nhất trong thời đại của chúng ta."
+      },
+      body1: {
+        en: "The most compelling argument for universal healthcare is the fundamental ethical principle that human life and health should not be commodified. In market-based healthcare systems, the ability to access life-saving treatment is determined by financial resources rather than medical need, creating a deeply unjust system where the poor face preventable suffering and premature death. Moreover, universal healthcare systems generate significant economic efficiency: preventive care reduces the far greater costs of treating advanced illnesses; healthier populations are more productive workforces; and the elimination of complex insurance bureaucracies reduces administrative overhead substantially.",
+        vi: "Lập luận thuyết phục nhất cho chăm sóc sức khỏe phổ quát là nguyên tắc đạo đức cơ bản rằng cuộc sống và sức khỏe con người không nên bị thương mại hóa. Trong các hệ thống chăm sóc sức khỏe dựa trên thị trường, khả năng tiếp cận điều trị cứu sống được xác định bởi nguồn lực tài chính hơn là nhu cầu y tế."
+      },
+      body2: {
+        en: "Critics of universal healthcare raise concerns about cost, efficiency, and the suppression of medical innovation. They argue that publicly funded systems inevitably lead to long waiting times, rationing of care, and reduced incentives for medical research and development. While these concerns have some validity, countries with universal healthcare—such as Canada, the UK, and the Scandinavian nations—consistently achieve superior health outcomes, including longer life expectancy and lower infant mortality, at significantly lower per-capita costs than the United States, which operates a predominantly private system.",
+        vi: "Các nhà phê bình về chăm sóc sức khỏe phổ quát nêu lên lo ngại về chi phí, hiệu quả và việc kìm hãm đổi mới y tế. Họ lập luận rằng các hệ thống được tài trợ công không thể tránh khỏi dẫn đến thời gian chờ đợi dài, phân bổ chăm sóc và giảm động lực cho nghiên cứu và phát triển y tế."
+      },
+      conclusion: {
+        en: "In conclusion, I firmly believe that healthcare should be universally accessible and publicly funded. The evidence from countries that have implemented universal healthcare systems overwhelmingly demonstrates that they produce better health outcomes, greater equity, and superior economic efficiency compared to market-based alternatives. Access to healthcare is not a luxury but a fundamental human right that governments have an obligation to guarantee.",
+        vi: "Tóm lại, tôi kiên quyết tin rằng chăm sóc sức khỏe nên được tiếp cận phổ quát và được tài trợ công. Bằng chứng từ các quốc gia đã triển khai hệ thống chăm sóc sức khỏe phổ quát cho thấy áp đảo rằng chúng tạo ra kết quả sức khỏe tốt hơn, công bằng hơn và hiệu quả kinh tế vượt trội so với các lựa chọn thay thế dựa trên thị trường."
+      }
+    },
+    vocabulary: [
+      { word: "commodified", meaning: "bị thương mại hóa, coi như hàng hóa" },
+      { word: "per-capita", meaning: "tính theo đầu người" },
+      { word: "rationing", meaning: "sự phân bổ/phân phối theo hạn mức" },
+      { word: "preventive care", meaning: "chăm sóc phòng ngừa" },
+      { word: "infant mortality", meaning: "tỷ lệ tử vong trẻ sơ sinh" },
+    ],
+    structures: [
+      "X represents one of the most fundamental aspects of ...",
+      "The most compelling argument for X is ...",
+      "Critics of X raise concerns about A, B, and C",
+      "Countries with X consistently achieve superior outcomes",
+      "X is not a luxury but a fundamental right",
+    ]
+  },
+  {
+    id: 8,
+    title: "Social Media & Mental Health",
+    titleVi: "Mạng xã hội & Sức khỏe tâm thần",
+    type: "Advantages & Disadvantages",
+    typeVi: "Ưu điểm & Nhược điểm",
+    prompt: "Social media platforms have transformed the way people communicate and share information. Discuss the advantages and disadvantages of social media and give your own opinion on whether its benefits outweigh its drawbacks.",
+    promptVi: "Các nền tảng mạng xã hội đã biến đổi cách mọi người giao tiếp và chia sẻ thông tin. Thảo luận ưu và nhược điểm của mạng xã hội và đưa ra ý kiến của bạn liệu lợi ích của nó có lớn hơn nhược điểm hay không.",
+    template: "Advantages-Disadvantages + Opinion",
+    essay: {
+      introduction: {
+        en: "Social media has fundamentally reshaped human communication, creating a global information ecosystem that connects billions of users instantaneously. Its rapid ascent has generated both extraordinary opportunities and unprecedented challenges, prompting intense debate about its net impact on individuals and society. This essay contends that while social media offers genuine benefits, its current form produces harms that require urgent systemic reform.",
+        vi: "Mạng xã hội đã định hình lại cơ bản giao tiếp con người, tạo ra một hệ sinh thái thông tin toàn cầu kết nối hàng tỷ người dùng ngay lập tức. Sự trỗi dậy nhanh chóng của nó đã tạo ra cả những cơ hội phi thường lẫn những thách thức chưa từng có."
+      },
+      body1: {
+        en: "The benefits of social media are significant and multifaceted. At the individual level, platforms enable people to maintain relationships across geographical boundaries, discover communities of shared interest, and access information that was previously available only to privileged groups. At a societal level, social media has proven to be a powerful instrument of democratic accountability: citizen journalism and online activism have exposed corruption, mobilised political movements, and amplified the voices of marginalised communities who lacked access to traditional media channels.",
+        vi: "Lợi ích của mạng xã hội đáng kể và đa mặt. Ở cấp độ cá nhân, các nền tảng cho phép mọi người duy trì các mối quan hệ vượt qua ranh giới địa lý, khám phá các cộng đồng có cùng sở thích và tiếp cận thông tin trước đây chỉ dành cho các nhóm đặc quyền."
+      },
+      body2: {
+        en: "However, the disadvantages of social media are increasingly difficult to dismiss. Algorithmically driven engagement models prioritise emotionally provocative content that maximises user time on platform, frequently amplifying misinformation, outrage, and political polarisation. The psychological evidence is particularly concerning: experimental research has demonstrated causal links between heavy social media use and depression, anxiety, body dysmorphia, and suicidal ideation, particularly among adolescent girls. Furthermore, the business model of data commodification raises profound privacy concerns, with users' personal information monetised without meaningful consent or transparency.",
+        vi: "Tuy nhiên, những nhược điểm của mạng xã hội ngày càng khó bác bỏ. Các mô hình tương tác do thuật toán thúc đẩy ưu tiên nội dung kích động cảm xúc để tối đa hóa thời gian người dùng trên nền tảng, thường xuyên khuếch đại thông tin sai lệch, phẫn nộ và phân cực chính trị."
+      },
+      conclusion: {
+        en: "In conclusion, social media's capacity to connect, inform, and empower is genuinely valuable but is currently being systematically undermined by business models that incentivise harm. Regulatory frameworks requiring algorithmic transparency, data privacy protections, and independent auditing of platform impacts are essential to reforming social media into a genuine public good rather than a profit-driven hazard.",
+        vi: "Tóm lại, khả năng kết nối, thông tin và trao quyền của mạng xã hội thực sự có giá trị nhưng hiện đang bị phá hoại có hệ thống bởi các mô hình kinh doanh khuyến khích tác hại. Các khung pháp lý yêu cầu minh bạch thuật toán, bảo vệ quyền riêng tư dữ liệu và kiểm toán độc lập về tác động của nền tảng là cần thiết."
+      }
+    },
+    vocabulary: [
+      { word: "polarisation", meaning: "sự phân cực (xã hội, chính trị)" },
+      { word: "misinformation", meaning: "thông tin sai lệch" },
+      { word: "algorithmic", meaning: "thuộc về thuật toán" },
+      { word: "data commodification", meaning: "thương mại hóa dữ liệu cá nhân" },
+      { word: "body dysmorphia", meaning: "chứng rối loạn hình thể" },
+    ],
+    structures: [
+      "X has fundamentally reshaped ...",
+      "At the individual level, ... At a societal level, ...",
+      "The psychological evidence is particularly concerning: ...",
+      "X is genuinely valuable but is currently being undermined by ...",
+      "Regulatory frameworks requiring X, Y, and Z are essential to ...",
+    ]
+  },
+  {
+    id: 9,
+    title: "Space Exploration",
+    titleVi: "Khám phá Vũ trụ",
+    type: "Opinion (Agree/Disagree)",
+    typeVi: "Quan điểm (Đồng ý/Không đồng ý)",
+    prompt: "Some people think that governments should spend money on space exploration programs, while others believe that this money would be better spent on solving problems on Earth. Discuss both views and give your opinion.",
+    promptVi: "Một số người cho rằng chính phủ nên chi tiền cho các chương trình thám hiểm vũ trụ, trong khi những người khác tin rằng số tiền này sẽ được chi tốt hơn để giải quyết các vấn đề trên Trái Đất. Thảo luận cả hai quan điểm và đưa ra ý kiến của bạn.",
+    template: "Discussion + Opinion",
+    essay: {
+      introduction: {
+        en: "The allocation of public funds to space exploration has long provoked debate between those who see it as humanity's highest scientific aspiration and those who view it as a fiscally irresponsible distraction from urgent terrestrial needs. While both perspectives have merit, I believe that well-designed space programs generate substantial benefits for humanity that justify continued public investment.",
+        vi: "Việc phân bổ quỹ công cho khám phá vũ trụ từ lâu đã gây ra tranh luận giữa những người coi đây là tham vọng khoa học cao nhất của nhân loại và những người coi đây là một sự phân tâm tốn kém tài chính khỏi những nhu cầu cấp bách trên Trái Đất."
+      },
+      body1: {
+        en: "Critics of space exploration spending argue that the resources devoted to missions to Mars or lunar bases could address immediate human needs far more effectively. Global poverty, preventable disease, and climate change represent concrete, solvable problems that claim millions of lives annually and disproportionately affect the world's poorest populations. The approximately $25 billion annual NASA budget, they argue, could fund comprehensive vaccination programmes, clean water infrastructure, or climate adaptation initiatives that would demonstrably reduce human suffering on a massive scale.",
+        vi: "Các nhà phê bình về chi tiêu khám phá vũ trụ lập luận rằng các nguồn lực dành cho các sứ mệnh lên sao Hỏa hoặc căn cứ mặt trăng có thể giải quyết các nhu cầu con người cấp bách hiệu quả hơn nhiều."
+      },
+      body2: {
+        en: "However, proponents counter that the benefits of space exploration extend far beyond their apparent scope. Technologies developed for space missions have generated transformative civilian applications: GPS navigation, satellite weather forecasting, water purification technology, and medical imaging advances all originated in space research. Furthermore, the existential risk posed by asteroid impacts, solar events, and other cosmic hazards makes developing the capability to operate beyond Earth a genuine long-term investment in human survival. Space exploration also generates powerful scientific inspiration, stimulating interest in STEM fields that underpin economic and technological competitiveness.",
+        vi: "Tuy nhiên, những người ủng hộ phản bác rằng lợi ích của khám phá vũ trụ kéo dài xa hơn phạm vi rõ ràng của chúng. Các công nghệ được phát triển cho các sứ mệnh vũ trụ đã tạo ra các ứng dụng dân sự mang tính chuyển đổi: điều hướng GPS, dự báo thời tiết vệ tinh, công nghệ lọc nước và tiến bộ hình ảnh y tế đều bắt nguồn từ nghiên cứu vũ trụ."
+      },
+      conclusion: {
+        en: "In my view, the framing of space exploration versus earthly problems as a zero-sum choice is a false dichotomy. A modest but sustained investment in space research generates disproportionate long-term returns in scientific knowledge, technological innovation, and human security. The challenge is not to choose between Earth and space, but to ensure that exploration programmes are conducted efficiently and that their benefits are equitably distributed.",
+        vi: "Theo quan điểm của tôi, việc đóng khung khám phá vũ trụ so với các vấn đề trần thế như một lựa chọn tổng bằng không là một sự đánh đổi sai lầm. Một khoản đầu tư khiêm tốn nhưng bền vững vào nghiên cứu vũ trụ tạo ra lợi nhuận dài hạn không cân xứng về kiến thức khoa học, đổi mới công nghệ và an ninh con người."
+      }
+    },
+    vocabulary: [
+      { word: "terrestrial", meaning: "thuộc về Trái Đất, trên mặt đất" },
+      { word: "zero-sum", meaning: "tổng bằng không (lợi ích của bên này = thiệt của bên kia)" },
+      { word: "false dichotomy", meaning: "sự đối lập sai lầm (hai lựa chọn không thực sự loại trừ nhau)" },
+      { word: "STEM", meaning: "Khoa học, Công nghệ, Kỹ thuật, Toán học" },
+      { word: "existential risk", meaning: "rủi ro hiện hữu (đe dọa sự tồn vong)" },
+    ],
+    structures: [
+      "The framing of X versus Y as a zero-sum choice is a false dichotomy",
+      "Technologies developed for X have generated transformative applications",
+      "X extends far beyond its apparent scope",
+      "A modest but sustained investment in X generates disproportionate returns",
+      "The challenge is not to choose between X and Y, but to ...",
+    ]
+  },
+  {
+    id: 10,
+    title: "Gender Equality in the Workplace",
+    titleVi: "Bình đẳng giới tại nơi làm việc",
+    type: "Problem & Solution",
+    typeVi: "Vấn đề & Giải pháp",
+    prompt: "Despite significant progress, women remain underrepresented in senior positions across many industries. What are the reasons for this and what measures could be taken to address the situation?",
+    promptVi: "Mặc dù đã có tiến bộ đáng kể, phụ nữ vẫn bị đại diện thiếu ở các vị trí cấp cao trong nhiều ngành. Nguyên nhân là gì và có thể thực hiện những biện pháp nào để giải quyết tình trạng này?",
+    template: "Problem-Solution",
+    essay: {
+      introduction: {
+        en: "Despite decades of legislative progress on gender equality, a persistent and troubling gap remains between women's representation in the general workforce and their presence at the highest levels of organisational leadership. Understanding the structural, cultural, and psychological mechanisms that perpetuate this disparity is essential to designing interventions capable of producing genuine, lasting change.",
+        vi: "Mặc dù đã có nhiều thập kỷ tiến bộ lập pháp về bình đẳng giới, vẫn còn một khoảng cách dai dẳng và đáng lo ngại giữa đại diện của phụ nữ trong lực lượng lao động nói chung và sự hiện diện của họ ở các cấp lãnh đạo tổ chức cao nhất."
+      },
+      body1: {
+        en: "Several interconnected factors contribute to the underrepresentation of women in leadership. First, structural barriers persist in the form of inflexible working arrangements, inadequate parental leave policies, and a dearth of affordable childcare, all of which disproportionately burden women who continue to bear primary responsibility for domestic and caregiving duties in most societies. Second, unconscious bias in recruitment and promotion processes systematically disadvantages female candidates, with research demonstrating that identical CVs are rated significantly lower when assigned a female name. Third, the absence of visible female role models in senior positions creates a psychological barrier, as aspiration is profoundly shaped by what individuals believe to be possible for people like themselves.",
+        vi: "Một số yếu tố liên kết nhau góp phần vào sự đại diện thiếu của phụ nữ trong lãnh đạo. Đầu tiên, các rào cản cấu trúc vẫn tồn tại dưới dạng sắp xếp làm việc không linh hoạt, chính sách nghỉ thai sản không đầy đủ và thiếu dịch vụ chăm sóc trẻ em giá cả phải chăng, tất cả đều gây gánh nặng không cân xứng cho phụ nữ."
+      },
+      body2: {
+        en: "Addressing this issue requires a multi-pronged strategy. Organisations should implement transparent, structured promotion criteria that minimise the influence of unconscious bias, alongside mandatory diversity targets for shortlists. Governments can incentivise shared parental leave policies that normalise men's participation in childcare, thereby reducing the career penalty disproportionately borne by mothers. Mentorship programmes connecting aspiring women with senior female leaders have demonstrated measurable impact on career progression. Finally, unconscious bias training, while not sufficient alone, can raise awareness of the subtle mechanisms that perpetuate gender inequality in workplace decision-making.",
+        vi: "Giải quyết vấn đề này đòi hỏi chiến lược đa hướng. Các tổ chức nên thực hiện các tiêu chí thăng tiến minh bạch, có cấu trúc để giảm thiểu ảnh hưởng của định kiến vô thức, cùng với các mục tiêu đa dạng bắt buộc cho danh sách ứng viên."
+      },
+      conclusion: {
+        en: "In conclusion, the underrepresentation of women in leadership positions reflects a complex web of structural, cultural, and psychological barriers that require equally multifaceted responses. Progress demands commitment from governments, corporations, and individuals alike. Beyond issues of fairness, research consistently demonstrates that gender-diverse leadership teams produce superior organisational performance, making this not merely a social justice imperative but a sound strategic investment.",
+        vi: "Tóm lại, sự đại diện thiếu của phụ nữ ở các vị trí lãnh đạo phản ánh một mạng lưới phức tạp của các rào cản cấu trúc, văn hóa và tâm lý đòi hỏi phản ứng đa mặt tương đương."
+      }
+    },
+    vocabulary: [
+      { word: "unconscious bias", meaning: "định kiến vô thức" },
+      { word: "glass ceiling", meaning: "trần kính (rào cản vô hình ngăn phụ nữ thăng tiến)" },
+      { word: "gender pay gap", meaning: "khoảng cách lương theo giới" },
+      { word: "parental leave", meaning: "nghỉ thai sản / nghỉ chăm con" },
+      { word: "multi-pronged", meaning: "đa hướng, nhiều mũi nhọn" },
+    ],
+    structures: [
+      "A persistent gap remains between X and Y",
+      "Several interconnected factors contribute to ...",
+      "Research demonstrates that identical X are rated lower when ...",
+      "Addressing this requires a multi-pronged strategy",
+      "Beyond issues of fairness, research demonstrates that ...",
+    ]
+  },
+];
+
+export default writingTask2Topics;

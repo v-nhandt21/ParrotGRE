@@ -1,0 +1,460 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   DESIGN TOKENS — CSS CUSTOM PROPERTIES
+   dark = default (:root), light = [data-theme="light"]
+   ===================================================== */
+
+:root {
+  /* Backgrounds */
+  --bg-app:           linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  --bg-header:        rgba(15, 23, 42, 0.95);
+  --bg-footer:        rgba(15, 23, 42, 0.92);
+  --bg-header-border: rgba(51, 65, 85, 0.5);
+  --bg-card:          rgba(30, 41, 59, 0.6);
+  --bg-card-border:   rgba(51, 65, 85, 0.5);
+  --bg-surface:       #1e293b;
+  --bg-surface-alt:   #0f172a;
+  --bg-control:       #1e293b;
+  --bg-control-hover: #334155;
+  --bg-input:         #1e293b;
+  --bg-input-border:  #334155;
+  --bg-cue-card:      linear-gradient(135deg, #1e1b4b, #1e293b);
+  --bg-cue-border:    rgba(139, 92, 246, 0.3);
+  --bg-badge-blue:    rgba(30, 58, 138, 0.5);
+  --bg-badge-purple:  rgba(88, 28, 135, 0.5);
+
+  /* Text */
+  --text-primary:     #f1f5f9;
+  --text-secondary:   #94a3b8;
+  --text-muted:       #64748b;
+  --text-heading:     #ffffff;
+  --text-phonetic:    #fbbf24;
+  --text-vi:          #93c5fd;
+  --text-badge-blue:  #93c5fd;
+  --text-badge-purple:#d8b4fe;
+
+  /* Borders */
+  --border:           rgba(51, 65, 85, 0.5);
+  --border-solid:     #334155;
+
+  /* Info boxes */
+  --tip-bg:           rgba(59, 130, 246, 0.1);
+  --tip-border:       rgba(59, 130, 246, 0.3);
+  --tip-text:         #bfdbfe;
+  --warn-bg:          rgba(245, 158, 11, 0.1);
+  --warn-border:      rgba(245, 158, 11, 0.3);
+  --warn-text:        #fde68a;
+  --success-bg:       rgba(16, 185, 129, 0.1);
+  --success-border:   rgba(16, 185, 129, 0.3);
+  --success-text:     #a7f3d0;
+
+  /* Shadows */
+  --card-hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --card-shadow:       none;
+  --tab-glow:          0 4px 15px rgba(59, 130, 246, 0.4);
+
+  /* Scrollbar */
+  --scrollbar-track: #1e293b;
+  --scrollbar-thumb: #475569;
+  --scrollbar-hover: #64748b;
+}
+
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-app:           linear-gradient(135deg, #f0f4ff 0%, #faf5ff 50%, #f0f9ff 100%);
+  --bg-header:        rgba(255, 255, 255, 0.94);
+  --bg-footer:        rgba(255, 255, 255, 0.94);
+  --bg-header-border: rgba(148, 163, 184, 0.2);
+  --bg-card:          rgba(255, 255, 255, 0.95);
+  --bg-card-border:   rgba(148, 163, 184, 0.28);
+  --bg-surface:       #ffffff;
+  --bg-surface-alt:   #f8fafc;
+  --bg-control:       #f1f5f9;
+  --bg-control-hover: #e2e8f0;
+  --bg-input:         #ffffff;
+  --bg-input-border:  #cbd5e1;
+  --bg-cue-card:      linear-gradient(135deg, #eff6ff, #f5f3ff);
+  --bg-cue-border:    rgba(139, 92, 246, 0.22);
+  --bg-badge-blue:    rgba(219, 234, 254, 0.8);
+  --bg-badge-purple:  rgba(237, 233, 254, 0.8);
+
+  /* Text */
+  --text-primary:     #0f172a;
+  --text-secondary:   #475569;
+  --text-muted:       #94a3b8;
+  --text-heading:     #0f172a;
+  --text-phonetic:    #d97706;
+  --text-vi:          #2563eb;
+  --text-badge-blue:  #1d4ed8;
+  --text-badge-purple:#7c3aed;
+
+  /* Borders */
+  --border:           rgba(148, 163, 184, 0.35);
+  --border-solid:     #cbd5e1;
+
+  /* Info boxes */
+  --tip-bg:           rgba(59, 130, 246, 0.07);
+  --tip-border:       rgba(59, 130, 246, 0.22);
+  --tip-text:         #1e40af;
+  --warn-bg:          rgba(245, 158, 11, 0.07);
+  --warn-border:      rgba(245, 158, 11, 0.28);
+  --warn-text:        #92400e;
+  --success-bg:       rgba(16, 185, 129, 0.07);
+  --success-border:   rgba(16, 185, 129, 0.28);
+  --success-text:     #065f46;
+
+  /* Shadows */
+  --card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --card-shadow:       0 1px 3px rgba(0,0,0,0.07), 0 4px 14px rgba(0,0,0,0.06);
+  --tab-glow:          0 4px 12px rgba(59, 130, 246, 0.28);
+
+  /* Scrollbar */
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-hover: #94a3b8;
+}
+
+/* =====================================================
+   BASE
+   ===================================================== */
+
+@layer base {
+  body {
+    @apply font-sans;
+    background-color: #0f172a;
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track  { background: var(--scrollbar-track); }
+  ::-webkit-scrollbar-thumb  { background: var(--scrollbar-thumb); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+}
+
+/* =====================================================
+   COMPONENT CLASSES — all use CSS variables
+   ===================================================== */
+
+@layer components {
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+  }
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-500 text-white font-semibold px-4 py-2 rounded-xl transition-all duration-200 active:scale-95;
+  }
+  .btn-secondary {
+    background: var(--bg-control);
+    color: var(--text-primary);
+    border: 1px solid var(--border-solid);
+    @apply font-medium px-4 py-2 rounded-xl transition-all duration-200 active:scale-95;
+  }
+  .btn-secondary:hover {
+    background: var(--bg-control-hover);
+  }
+  .btn-success {
+    @apply bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2 rounded-xl transition-all duration-200 active:scale-95;
+  }
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 0.25rem;
+  }
+  .section-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+  .bilingual-en {
+    color: var(--text-primary);
+    line-height: 1.75;
+  }
+  .bilingual-vi {
+    color: var(--text-vi);
+    font-size: 0.875rem;
+    line-height: 1.75;
+    font-style: italic;
+  }
+  .phonetic {
+    color: var(--text-phonetic);
+    font-family: ui-monospace, monospace;
+    font-size: 0.875rem;
+  }
+}
+
+/* =====================================================
+   HERO / APP GRADIENT
+   ===================================================== */
+
+.hero-gradient {
+  background: var(--bg-app);
+  min-height: 100vh;
+  transition: background 0.3s ease;
+}
+
+/* =====================================================
+   HEADER & FOOTER
+   ===================================================== */
+
+.app-header {
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--bg-header-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.app-header-inner-border {
+  border-bottom: 1px solid var(--border);
+}
+.app-footer {
+  background: var(--bg-footer);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* =====================================================
+   TAB ACTIVE STATE
+   ===================================================== */
+
+.tab-active {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white !important;
+  box-shadow: var(--tab-glow);
+}
+.tab-inactive {
+  color: var(--text-secondary);
+}
+.tab-inactive:hover {
+  color: var(--text-primary);
+  background: var(--bg-control);
+}
+
+/* =====================================================
+   CONTROL CONTAINERS (filter bars, toggle groups)
+   ===================================================== */
+
+.control-group {
+  background: var(--bg-control);
+  border: 1px solid var(--border-solid);
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+}
+
+/* =====================================================
+   SEARCH INPUT
+   ===================================================== */
+
+.search-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--bg-input-border);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+.search-input::placeholder { color: var(--text-muted); }
+.search-input:focus { outline: none; border-color: #3b82f6; }
+
+/* =====================================================
+   INFO BOXES
+   ===================================================== */
+
+.tip-box {
+  background: var(--tip-bg);
+  border: 1px solid var(--tip-border);
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--tip-text);
+}
+.warn-box {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-border);
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--warn-text);
+}
+.success-box {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--success-text);
+}
+
+/* =====================================================
+   ESSAY SECTION BORDERS
+   ===================================================== */
+
+.essay-section { border-left: 3px solid; padding-left: 1rem; }
+.essay-intro    { border-color: #3b82f6; }
+.essay-body1    { border-color: #8b5cf6; }
+.essay-body2    { border-color: #ec4899; }
+.essay-conclusion { border-color: #10b981; }
+
+/* =====================================================
+   SPEAKING CUE CARD
+   ===================================================== */
+
+.speaking-cue-card {
+  background: var(--bg-cue-card);
+  border: 1px solid var(--bg-cue-border);
+  border-radius: 1rem;
+}
+
+/* =====================================================
+   VOCAB STATES
+   ===================================================== */
+
+.learned-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+.vocab-card-learned {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  background: rgba(16, 185, 129, 0.05) !important;
+}
+
+/* =====================================================
+   PROGRESS BAR
+   ===================================================== */
+
+.progress-bar {
+  height: 6px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* =====================================================
+   CARD HOVER
+   ===================================================== */
+
+.card-hover { transition: all 0.2s ease; }
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* =====================================================
+   ANIMATION
+   ===================================================== */
+
+.animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================================
+   THEME TOGGLE BUTTON
+   ===================================================== */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border-solid);
+  background: var(--bg-control);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.theme-toggle:hover {
+  background: var(--bg-control-hover);
+  color: var(--text-primary);
+  border-color: #3b82f6;
+}
+
+/* =====================================================
+   LIGHT THEME — TAILWIND INLINE CLASS OVERRIDES
+   Override the most commonly used slate classes in JSX.
+   Parent selector specificity [0,1,1] beats Tailwind [0,0,1].
+   ===================================================== */
+
+/* --- Text --- */
+[data-theme="light"] .text-white,
+[data-theme="light"] .text-slate-100,
+[data-theme="light"] .text-slate-200 { color: var(--text-primary); }
+
+[data-theme="light"] .text-slate-300,
+[data-theme="light"] .text-slate-400 { color: var(--text-secondary); }
+
+[data-theme="light"] .text-slate-500 { color: var(--text-muted); }
+
+/* --- Backgrounds --- */
+[data-theme="light"] .bg-slate-950   { background-color: #f0f4ff; }
+[data-theme="light"] .bg-slate-900   { background-color: #f8fafc; }
+[data-theme="light"] .bg-slate-900\/95 { background: var(--bg-header); }
+[data-theme="light"] .bg-slate-900\/90 { background: var(--bg-footer); }
+[data-theme="light"] .bg-slate-900\/50 { background-color: rgba(241, 245, 249, 0.85); }
+[data-theme="light"] .bg-slate-800   { background-color: #f1f5f9; }
+[data-theme="light"] .bg-slate-800\/60{ background-color: rgba(255, 255, 255, 0.92); }
+[data-theme="light"] .bg-slate-800\/50{ background-color: rgba(241, 245, 249, 0.7); }
+[data-theme="light"] .bg-slate-700   { background-color: #e2e8f0; }
+[data-theme="light"] .bg-slate-700\/50{ background-color: rgba(226, 232, 240, 0.6); }
+[data-theme="light"] .bg-slate-700\/30{ background-color: rgba(226, 232, 240, 0.4); }
+
+/* --- Borders --- */
+[data-theme="light"] .border-slate-700,
+[data-theme="light"] .border-slate-700\/50 { border-color: var(--border-solid); }
+[data-theme="light"] .border-slate-800      { border-color: rgba(148, 163, 184, 0.25); }
+
+/* --- Hover states (Tailwind hover: utilities) --- */
+[data-theme="light"] .hover\:bg-slate-700:hover,
+[data-theme="light"] .hover\:bg-slate-600:hover { background-color: var(--bg-control-hover); }
+[data-theme="light"] .hover\:text-white:hover    { color: var(--text-primary); }
+
+/* --- Placeholder --- */
+[data-theme="light"] .placeholder-slate-500::placeholder { color: #94a3b8; }
+
+/* --- Badges (blue/purple in header) --- */
+[data-theme="light"] .bg-blue-900\/50   { background-color: var(--bg-badge-blue); }
+[data-theme="light"] .text-blue-300     { color: var(--text-badge-blue); }
+[data-theme="light"] .bg-purple-900\/50 { background-color: var(--bg-badge-purple); }
+[data-theme="light"] .text-purple-300   { color: var(--text-badge-purple); }
+
+/* --- POS tag tints (vocab cards) --- */
+[data-theme="light"] .bg-purple-900\/60 { background-color: rgba(237,233,254,0.8); }
+[data-theme="light"] .bg-blue-900\/60   { background-color: rgba(219,234,254,0.8); }
+[data-theme="light"] .bg-emerald-900\/60{ background-color: rgba(209,250,229,0.8); }
+[data-theme="light"] .bg-yellow-900\/60 { background-color: rgba(254,249,195,0.8); }
+[data-theme="light"] .bg-pink-900\/60   { background-color: rgba(252,231,243,0.8); }
+[data-theme="light"] .border-purple-700\/50 { border-color: rgba(167,139,250,0.4); }
+[data-theme="light"] .border-blue-700\/50   { border-color: rgba(96,165,250,0.4); }
+[data-theme="light"] .border-emerald-700\/40{ border-color: rgba(52,211,153,0.4); }
+[data-theme="light"] .border-red-700\/40    { border-color: rgba(252,165,165,0.4); }
+[data-theme="light"] .border-yellow-700\/40 { border-color: rgba(253,224,71,0.4); }
+
+/* --- Tag tints in Writing --- */
+[data-theme="light"] .bg-blue-900\/60   { background-color: rgba(219,234,254,0.8); }
+[data-theme="light"] .bg-orange-900\/60 { background-color: rgba(255,237,213,0.8); }
+[data-theme="light"] .bg-pink-900\/60   { background-color: rgba(252,231,243,0.8); }
+[data-theme="light"] .border-blue-700\/50   { border-color: rgba(96,165,250,0.4); }
+
+/* --- Writing prompt box left border stays --- */
+[data-theme="light"] .border-blue-500   { border-color: #3b82f6; }
+
+/* --- Progress bar track --- */
+[data-theme="light"] .bg-slate-700.rounded-full { background-color: #e2e8f0; }
+
+/* --- Vocab learned card override (keep green tint) --- */
+[data-theme="light"] .vocab-card-learned {
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  background: rgba(16, 185, 129, 0.05) !important;
+}
