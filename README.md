@@ -239,25 +239,38 @@ sampleAnswer2: { en: "...", vi: "..." },
 
 ## Backlog & TODO
 
-### 🟢 Nice to Have
+### 🔴 Content
 
-- [ ] **Export từ đã học** ra file CSV/JSON
-- [ ] **Spaced repetition** — tự động ưu tiên ôn từ sắp quên (thuật toán SM-2)
-- [ ] **Timer** cho Writing — đặt 40 phút và bấm giờ viết thật
-- [ ] **Highlight cấu trúc câu** trong bài mẫu — click vào cấu trúc, highlight chỗ dùng trong essay
-- [ ] **Audio pronunciation** — Web Speech API đọc to từ vựng
-- [ ] **Note cá nhân** — thêm ghi chú riêng vào mỗi từ / bài
-- [ ] **Fullscreen flashcard** mode
-- [ ] **PWA** — cài về máy, dùng offline
-- [ ] **Search toàn cục** — tìm kiếm xuyên suốt tất cả tab
-- [ ] **Quiz: Fill in the blank** — chế độ điền từ thay vì chọn đáp án
+- [ ] **Vocabulary: mở rộng lên 1000 từ** *(hiện tại: 500/1000)* — thêm từ id 501–1000 từ nguồn Magoosh GRE 1000, Barron's 800
+- [ ] **Writing Task 2: thêm 10 bài mới** *(hiện tại: 20/30)* — các chủ đề: AI & Jobs, Social Media, Space Exploration, Vegetarianism, Immigration, Surveillance, Free Education, Universal Basic Income, Mental Health, Genetic Engineering
+- [ ] **Writing Task 1: thêm bài mẫu 3** cho mỗi dạng (mixed/dual charts)
+- [ ] **Speaking: thêm Part 1 chủ đề mới** — Sports & Fitness, Fashion, Money & Finance, Social Media
+
+### 🟡 Tính năng học tập
+
+- [ ] **Quiz: Fill in the blank** — chế độ điền từ vào chỗ trống thay vì chọn đáp án
+- [ ] **Spaced repetition** — tự động ưu tiên ôn từ sắp quên (thuật toán SM-2), lưu lịch sử ôn tập vào localStorage
+- [ ] **Streak & Gamification** — đếm ngày học liên tiếp, huy hiệu khi đạt mốc (50/100/250/500 từ)
+- [ ] **Writing Timer** — đặt 40 phút và bấm giờ viết thật, cảnh báo còn 10 phút
+- [ ] **Audio pronunciation** — Web Speech API đọc to từ vựng khi click, có thể chọn accent (US/UK)
+- [ ] **Note cá nhân** — thêm ghi chú riêng vào mỗi từ / bài, lưu localStorage
+- [ ] **Highlight cấu trúc câu** — click vào cấu trúc trong panel, highlight đoạn tương ứng trong essay
+- [ ] **Export tiến độ** — xuất danh sách từ đã thuộc ra CSV/JSON/Anki deck
+
+### 🟢 UX & Giao diện
+
+- [ ] **Search toàn cục** — thanh tìm kiếm một chỗ tìm xuyên suốt Vocabulary + Writing + Speaking
+- [ ] **Fullscreen flashcard** — mode toàn màn hình, swipe trái/phải để lật/bỏ qua
+- [ ] **Keyboard shortcuts** — Space lật flashcard, ← → điều hướng, 1–4 chọn đáp án quiz
+- [ ] **Font size toggle** — nhỏ / vừa / lớn cho người đọc trên mobile
+- [ ] **PWA** — cài về máy (Add to Home Screen), dùng offline với Service Worker
 
 ### 🔵 Technical Debt
 
 - [ ] Tách `speakingData.js` thành 3 file riêng: `speakingPart1.js`, `speakingPart2.js`, `speakingPart3.js`
+- [ ] Lazy load từng tab component (code splitting) để giảm bundle size — hiện tại JS bundle ~610 kB
+- [ ] Tách vocabulary 500 từ ra thành chunks (ví dụ: vocab-1-250.js, vocab-251-500.js) hoặc dùng IndexedDB
 - [ ] Thêm PropTypes hoặc chuyển sang TypeScript
-- [ ] Lazy load từng tab component (code splitting) để giảm bundle size khi data lớn
-- [ ] Tách data lớn (vocabulary 500 từ) ra thành chunks hoặc dùng IndexedDB
 
 ---
 
