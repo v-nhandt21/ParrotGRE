@@ -5,7 +5,7 @@ import WritingTask1 from './components/WritingTask1.jsx';
 import { SpeakingPart1, SpeakingPart2, SpeakingPart3 } from './components/Speaking.jsx';
 
 const TABS = [
-  { id: 'vocab',    label: '📚 Vocabulary',     labelShort: 'Vocab',  subtitle: 'GRE 100 Words',  color: 'from-blue-600 to-blue-700',    component: Vocabulary    },
+  { id: 'vocab',    label: '📚 Vocabulary',     labelShort: 'Vocab',  subtitle: 'GRE 500 Words',  color: 'from-blue-600 to-blue-700',    component: Vocabulary    },
   { id: 'writing2', label: '✍️ Writing Task 2',  labelShort: 'Task 2', subtitle: 'GRE + IELTS',   color: 'from-purple-600 to-purple-700', component: WritingTask2  },
   { id: 'writing1', label: '📊 Writing Task 1',  labelShort: 'Task 1', subtitle: 'IELTS Only',    color: 'from-pink-600 to-pink-700',    component: WritingTask1  },
   { id: 'speak1',   label: '🗣️ Speaking Part 1', labelShort: 'Part 1', subtitle: 'Q&A Practice',  color: 'from-emerald-600 to-emerald-700', component: SpeakingPart1 },

@@ -5,6 +5,7 @@ export default function WritingTask1() {
   const [selectedId, setSelectedId] = useState(1);
   const [tab, setTab] = useState('phrases'); // phrases | template | sample
   const [lang, setLang] = useState('both');
+  const [sampleNum, setSampleNum] = useState(1);
 
   const chartType = writingTask1Types.find(t => t.id === selectedId) || writingTask1Types[0];
 
@@ -18,7 +19,7 @@ export default function WritingTask1() {
       {/* Chart type selector */}
       <div className="flex flex-wrap gap-2 mb-6">
         {writingTask1Types.map(t => (
-          <button key={t.id} onClick={() => { setSelectedId(t.id); setTab('phrases'); }}
+          <button key={t.id} onClick={() => { setSelectedId(t.id); setTab('phrases'); setSampleNum(1); }}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border ${selectedId === t.id ? 'tab-active border-blue-500' : 'tab-inactive border border-[var(--border-solid)] hover:border-blue-400'}`}>
             <span>{t.icon}</span>
             <span className="hidden sm:inline">{t.type}</span>
@@ -110,6 +111,27 @@ export default function WritingTask1() {
         {/* Tab: Sample Answer */}
         {tab === 'sample' && (
           <div className="animate-fade-in">
+            {/* Sample 1 / Sample 2 toggle */}
+            {chartType.sampleAnswer2 && (
+              <div className="flex gap-2 mb-3">
+                {[1, 2].map(n => (
+                  <button key={n} onClick={() => setSampleNum(n)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${sampleNum === n ? 'tab-active border-blue-500' : 'tab-inactive border border-[var(--border-solid)]'}`}>
+                    📝 Bài mẫu {n}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Show prompt 2 when viewing sample 2 */}
+            {sampleNum === 2 && chartType.samplePrompt2 && (
+              <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border-l-4 border-purple-500">
+                <p className="text-xs font-semibold text-purple-400 uppercase tracking-wider mb-2">📋 Đề bài 2</p>
+                <p className="text-slate-200 text-sm leading-relaxed">{chartType.samplePrompt2}</p>
+                <p className="text-purple-300 text-xs mt-2 italic">{chartType.samplePromptVi2}</p>
+              </div>
+            )}
+
             <div className="flex gap-2 mb-4">
               {[['both','🔤 Song ngữ'],['en','🇬🇧 English'],['vi','🇻🇳 Tiếng Việt']].map(([v, l]) => (
                 <button key={v} onClick={() => setLang(v)}
@@ -117,29 +139,34 @@ export default function WritingTask1() {
               ))}
             </div>
 
-            <div className="card p-5 space-y-4 bg-slate-900/50">
-              {(lang === 'en' || lang === 'both') && (
-                <div>
-                  {lang === 'both' && <p className="text-xs font-semibold text-blue-400 mb-2">🇬🇧 English</p>}
-                  <div className="space-y-3">
-                    {chartType.sampleAnswer.en.split('\n\n').map((para, i) => (
-                      <p key={i} className="bilingual-en text-sm leading-relaxed">{para}</p>
-                    ))}
-                  </div>
+            {(() => {
+              const answer = sampleNum === 2 && chartType.sampleAnswer2 ? chartType.sampleAnswer2 : chartType.sampleAnswer;
+              return (
+                <div className="card p-5 space-y-4 bg-slate-900/50">
+                  {(lang === 'en' || lang === 'both') && (
+                    <div>
+                      {lang === 'both' && <p className="text-xs font-semibold text-blue-400 mb-2">🇬🇧 English</p>}
+                      <div className="space-y-3">
+                        {answer.en.split('\n\n').map((para, i) => (
+                          <p key={i} className="bilingual-en text-sm leading-relaxed">{para}</p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {lang === 'both' && <hr className="border-slate-700" />}
+                  {(lang === 'vi' || lang === 'both') && (
+                    <div>
+                      {lang === 'both' && <p className="text-xs font-semibold text-blue-400 mb-2">🇻🇳 Tiếng Việt</p>}
+                      <div className="space-y-3">
+                        {answer.vi.split('\n\n').map((para, i) => (
+                          <p key={i} className="bilingual-vi text-sm leading-relaxed">{para}</p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
-              {lang === 'both' && <hr className="border-slate-700" />}
-              {(lang === 'vi' || lang === 'both') && (
-                <div>
-                  {lang === 'both' && <p className="text-xs font-semibold text-blue-400 mb-2">🇻🇳 Tiếng Việt</p>}
-                  <div className="space-y-3">
-                    {chartType.sampleAnswer.vi.split('\n\n').map((para, i) => (
-                      <p key={i} className="bilingual-vi text-sm leading-relaxed">{para}</p>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+              );
+            })()}
           </div>
         )}
       </div>

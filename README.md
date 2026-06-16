@@ -65,17 +65,17 @@ ParrotGRE/
 │
 └── src/
     ├── main.jsx              # Entry point
-    ├── App.jsx               # Navigation + layout chính
-    ├── index.css             # Tailwind + custom styles
+    ├── App.jsx               # Navigation + layout chính + theme toggle
+    ├── index.css             # Tailwind + CSS variables (dark/light)
     │
     ├── data/                 # ← Toàn bộ nội dung học ở đây
-    │   ├── vocabulary.js     # 100 từ GRE (target: 500)
-    │   ├── writingTask2.js   # 10 bài Task 2 (target: 20)
-    │   ├── writingTask1.js   # 6 dạng Task 1 (đầy đủ)
-    │   └── speakingData.js   # Part 1/2/3 speaking samples
+    │   ├── vocabulary.js     # 500 từ GRE ✅
+    │   ├── writingTask2.js   # 20 bài Task 2 ✅
+    │   ├── writingTask1.js   # 6 dạng Task 1, mỗi dạng 2 bài mẫu ✅
+    │   └── speakingData.js   # Part 1 (10) + Part 2 (10) + Part 3 (10) ✅
     │
     └── components/
-        ├── Vocabulary.jsx    # Tab từ vựng
+        ├── Vocabulary.jsx    # Tab từ vựng (Grid / Flashcard / Quiz)
         ├── WritingTask2.jsx  # Tab Writing Task 2
         ├── WritingTask1.jsx  # Tab Writing Task 1
         └── Speaking.jsx      # Tab Speaking Part 1/2/3
@@ -86,42 +86,47 @@ ParrotGRE/
 ## Các tab chức năng
 
 ### 📚 Vocabulary — GRE Verbal
-- **Hiện tại:** 100 từ
+- **500 từ GRE** đầy đủ (id 1–500)
 - Phiên âm IPA, nghĩa tiếng Việt, câu ví dụ song ngữ, đồng nghĩa, trái nghĩa
 - Chế độ **Danh sách**: click thẻ để mở chi tiết
 - Chế độ **Flashcard**: lật thẻ, điều hướng prev/next, random
+- Chế độ **Quiz** (multiple choice): 20 câu ngẫu nhiên, 4 lựa chọn, hiện feedback ngay, tự đánh dấu đúng, màn hình kết quả
 - Bộ lọc: Tất cả / Chưa thuộc / Đã thuộc
 - Tìm kiếm theo từ, nghĩa, đồng nghĩa
 - Progress bar + **localStorage** lưu từ đã thuộc (persistent qua sessions)
 
 ### ✍️ Writing Task 2 — GRE & IELTS
-- **Hiện tại:** 10 bài mẫu
+- **20 bài mẫu** đầy đủ
 - 4 dạng đề: Opinion · Discussion · Problem-Solution · Advantages-Disadvantages
 - Cấu trúc chuẩn 4 đoạn: Intro → Body 1 → Body 2 → Conclusion
 - Song ngữ Anh-Việt, toggle từng ngôn ngữ
 - Panel từ vựng trọng tâm + cấu trúc câu mẫu cho mỗi bài
 
 ### 📊 Writing Task 1 — IELTS
-- **Hiện tại:** 6 dạng đầy đủ
+- **6 dạng đầy đủ**, mỗi dạng **2 bài mẫu** khác nhau
   - 📈 Line Graph · 📊 Bar Chart · 🥧 Pie Chart · 📋 Table · ⚙️ Process · 🗺️ Map
 - Cụm từ then chốt (key phrases) cho từng dạng
 - Template chuẩn theo dạng bài
-- Bài mẫu song ngữ Anh-Việt
+- Toggle Bài mẫu 1 / Bài mẫu 2 với đề bài song ngữ riêng cho từng bài
 
 ### 🗣️ Speaking Part 1
-- **Hiện tại:** 6 chủ đề (Hometown, Work, Hobbies, Food, Technology, Health)
+- **10 chủ đề** (Hometown, Work, Hobbies, Food, Technology, Health, Music & Art, Travel, Nature & Environment, Language & Reading)
 - Câu hỏi thường gặp + gợi ý trả lời song ngữ
 - Click để mở/đóng từng câu
 
 ### 🎤 Speaking Part 2 — Cue Card
-- **Hiện tại:** 5 cue cards
-- Bài nói mẫu song ngữ đầy đủ (khoảng 1-2 phút)
+- **10 cue cards** đầy đủ
+- Bài nói mẫu song ngữ đầy đủ (khoảng 1–2 phút)
 - Toggle ẩn/hiện bài mẫu để tự luyện trước
 
 ### 💬 Speaking Part 3 — Discussion
-- **Hiện tại:** 5 chủ đề (Travel, Education, Technology, Environment, Work)
+- **10 chủ đề** đầy đủ
 - Câu trả lời mẫu Band 7+ song ngữ
 - Liên kết với chủ đề Part 2 tương ứng
+
+### 🌙 Dark / Light Mode
+- Toggle ngay trên header (góc phải)
+- Lưu preference vào localStorage
 
 ---
 
@@ -133,7 +138,7 @@ Thêm entry mới vào cuối mảng `vocabulary`, tăng `id` lên 1:
 
 ```js
 {
-  id: 101,
+  id: 501,
   word: "sagacity",
   phonetic: "/səˈɡæs.ɪ.ti/",
   pos: "n",                          // n | v | adj | adv | adj/n
@@ -151,7 +156,7 @@ Thêm object mới vào mảng `writingTask2Topics`:
 
 ```js
 {
-  id: 11,
+  id: 21,
   title: "Animal Testing",
   titleVi: "Thử nghiệm trên động vật",
   type: "Opinion (Agree/Disagree)",  // xem các type có sẵn bên dưới
@@ -180,12 +185,22 @@ Thêm object mới vào mảng `writingTask2Topics`:
 - `"Problem & Solution"`
 - `"Advantages & Disadvantages"`
 
+### Thêm bài mẫu 2 cho Writing Task 1 (`src/data/writingTask1.js`)
+
+Thêm 3 field vào entry muốn cập nhật:
+
+```js
+samplePrompt2: "The graph below shows ...",
+samplePromptVi2: "Biểu đồ dưới đây cho thấy ...",
+sampleAnswer2: { en: "...", vi: "..." },
+```
+
 ### Thêm Speaking data (`src/data/speakingData.js`)
 
 **Part 1** — thêm vào mảng `speakingPart1`:
 ```js
 {
-  id: 7, topic: "Music & Art", topicVi: "Âm nhạc & Nghệ thuật",
+  id: 11, topic: "Music & Art", topicVi: "Âm nhạc & Nghệ thuật",
   questions: [
     {
       q: "Do you enjoy listening to music?",
@@ -200,7 +215,7 @@ Thêm object mới vào mảng `writingTask2Topics`:
 **Part 2** — thêm vào mảng `speakingPart2` (tăng `id`):
 ```js
 {
-  id: 6,
+  id: 11,
   cueCard: "Describe a festival or celebration in your country.",
   cueCardVi: "Mô tả một lễ hội hoặc sự kiện kỷ niệm ở đất nước bạn.",
   prompts: ["What it is", "When it happens", "What people do", "Why it is important"],
@@ -212,7 +227,7 @@ Thêm object mới vào mảng `writingTask2Topics`:
 **Part 3** — thêm vào mảng `speakingPart3`:
 ```js
 {
-  id: 6, topic: "Arts & Culture", topicVi: "Nghệ thuật & Văn hóa",
+  id: 11, topic: "Arts & Culture", topicVi: "Nghệ thuật & Văn hóa",
   relatedPart2: "Describe a festival",
   questions: [
     { q: "...", qVi: "...", answer: "...", answerVi: "..." },
@@ -224,55 +239,9 @@ Thêm object mới vào mảng `writingTask2Topics`:
 
 ## Backlog & TODO
 
-### 🔴 High Priority
-
-- [ ] **Vocabulary: mở rộng lên 500 từ** *(hiện tại: 100/500)*
-  - Thêm ~400 từ GRE còn lại: từ id 101 đến 500
-  - Nguồn tham khảo tốt: Magoosh GRE 1000 words, ETS Official GRE vocab, Barron's 800 words
-  - Mỗi từ cần: `phonetic`, `pos`, `meaning (VI)`, `example`, `exampleVi`, `synonyms[]`, `antonyms[]`
-
-- [ ] **Writing Task 2: mở rộng lên 20 bài** *(hiện tại: 10/20)*
-  - Các chủ đề còn thiếu:
-    - `id: 11` — Remote Work / Work from Home
-    - `id: 12` — Nuclear vs Extended Family
-    - `id: 13` — Urban Development & Smart Cities
-    - `id: 14` — Private Cars vs Public Transport
-    - `id: 15` — Minimum Wage
-    - `id: 16` — Preserving Traditional Culture
-    - `id: 17` — Arts Funding (Government)
-    - `id: 18` — Extreme Sports
-    - `id: 19` — English as Global Language
-    - `id: 20` — Animal Testing / Ethics
-
-### 🟡 Medium Priority
-
-- [ ] **Speaking Part 1: thêm 4 chủ đề** *(hiện tại: 6/10)*
-  - Music & Art
-  - Travel & Transport
-  - Nature & Environment
-  - Language & Reading
-
-- [ ] **Speaking Part 2: thêm 5 cue cards** *(hiện tại: 5/10)*
-  - Describe a festival
-  - Describe a historical figure
-  - Describe a time you overcame a challenge
-  - Describe a piece of music that moved you
-  - Describe a city you would like to visit
-
-- [ ] **Speaking Part 3: thêm 5 chủ đề** *(hiện tại: 5/10)*
-  - Culture & Arts
-  - Family & Social Changes
-  - Health & Wellbeing
-  - Crime & Justice
-  - Language & Communication
-
-- [ ] **Writing Task 1: thêm sample thứ 2 cho mỗi dạng** (dual chart, mixed chart)
-
 ### 🟢 Nice to Have
 
-- [ ] **Dark/Light mode toggle**
 - [ ] **Export từ đã học** ra file CSV/JSON
-- [ ] **Quiz mode** cho Vocabulary — multiple choice, fill in the blank
 - [ ] **Spaced repetition** — tự động ưu tiên ôn từ sắp quên (thuật toán SM-2)
 - [ ] **Timer** cho Writing — đặt 40 phút và bấm giờ viết thật
 - [ ] **Highlight cấu trúc câu** trong bài mẫu — click vào cấu trúc, highlight chỗ dùng trong essay
@@ -281,6 +250,7 @@ Thêm object mới vào mảng `writingTask2Topics`:
 - [ ] **Fullscreen flashcard** mode
 - [ ] **PWA** — cài về máy, dùng offline
 - [ ] **Search toàn cục** — tìm kiếm xuyên suốt tất cả tab
+- [ ] **Quiz: Fill in the blank** — chế độ điền từ thay vì chọn đáp án
 
 ### 🔵 Technical Debt
 

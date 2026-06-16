@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { vocabulary as allWords } from '../data/vocabulary.js';
 
 const STORAGE_KEY = 'parrot_gre_learned';
@@ -19,12 +19,160 @@ const POS_COLORS = {
   adv: 'bg-pink-900/60 text-pink-300 border border-pink-700/50',
 };
 
+// Pick N random items from array, excluding a specific item
+function pickRandom(arr, n, exclude) {
+  const pool = arr.filter(x => x.id !== exclude.id);
+  const shuffled = pool.sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, n);
+}
+
+// Quiz sub-component
+function QuizMode({ words, learned, toggleLearn }) {
+  const [qIdx, setQIdx] = useState(0);
+  const [options, setOptions] = useState([]);
+  const [selected, setSelected] = useState(null); // null | word.id chosen
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const [quizWords, setQuizWords] = useState([]);
+
+  // Build a fresh quiz (20 questions) from words
+  const startQuiz = useCallback(() => {
+    const shuffled = [...words].sort(() => Math.random() - 0.5).slice(0, Math.min(20, words.length));
+    setQuizWords(shuffled);
+    setQIdx(0);
+    setScore(0);
+    setSelected(null);
+    setFinished(false);
+  }, [words]);
+
+  useEffect(() => { startQuiz(); }, [startQuiz]);
+
+  // Generate options for current question
+  useEffect(() => {
+    if (!quizWords.length || qIdx >= quizWords.length) return;
+    const correct = quizWords[qIdx];
+    const wrongs = pickRandom(allWords, 3, correct);
+    const all = [correct, ...wrongs].sort(() => Math.random() - 0.5);
+    setOptions(all);
+    setSelected(null);
+  }, [qIdx, quizWords]);
+
+  if (!quizWords.length) return null;
+
+  const current = quizWords[qIdx];
+  const isAnswered = selected !== null;
+
+  const handleSelect = (id) => {
+    if (isAnswered) return;
+    setSelected(id);
+    const correct = id === current.id;
+    setScore(s => s + (correct ? 1 : 0));
+    // Auto-mark correct answers as learned
+    if (correct && !learned.has(current.id)) toggleLearn(current.id);
+  };
+
+  const handleNext = () => {
+    if (qIdx + 1 >= quizWords.length) {
+      setFinished(true);
+    } else {
+      setQIdx(i => i + 1);
+    }
+  };
+
+  if (finished) {
+    const pct = Math.round((score / quizWords.length) * 100);
+    const emoji = pct >= 80 ? '🎉' : pct >= 60 ? '👍' : '📚';
+    return (
+      <div className="max-w-lg mx-auto text-center">
+        <div className="card p-8">
+          <div className="text-6xl mb-4">{emoji}</div>
+          <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-heading)' }}>Kết quả Quiz</h2>
+          <div className="text-5xl font-extrabold text-emerald-400 mb-2">{score}/{quizWords.length}</div>
+          <p className="text-slate-400 mb-1">{pct}% chính xác</p>
+          <p className="text-slate-500 text-sm mb-6">
+            {pct >= 80 ? 'Xuất sắc! Bạn đã nắm rất vững!' : pct >= 60 ? 'Tốt lắm! Tiếp tục ôn luyện nhé.' : 'Hãy ôn lại các từ chưa thuộc nhé.'}
+          </p>
+          <button onClick={startQuiz} className="btn-primary w-full">🔄 Quiz lại (20 câu mới)</button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto">
+      {/* Progress bar */}
+      <div className="flex items-center justify-between mb-3 text-sm text-slate-400">
+        <span>Câu {qIdx + 1} / {quizWords.length}</span>
+        <span className="text-emerald-400 font-semibold">✓ {score} đúng</span>
+      </div>
+      <div className="w-full bg-slate-700 rounded-full h-1.5 mb-6">
+        <div className="h-1.5 rounded-full bg-blue-500 transition-all" style={{ width: `${((qIdx) / quizWords.length) * 100}%` }} />
+      </div>
+
+      {/* Question card */}
+      <div className="card p-6 mb-4 text-center">
+        <p className="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-3">Nghĩa của từ này là gì?</p>
+        <div className="flex justify-center items-center gap-3 mb-2 flex-wrap">
+          <h2 className="text-4xl font-bold" style={{ color: 'var(--text-heading)' }}>{current.word}</h2>
+          <span className={`tag text-xs ${POS_COLORS[current.pos] || 'bg-slate-700 text-slate-300'}`}>{current.pos}</span>
+        </div>
+        <p className="phonetic text-lg">{current.phonetic}</p>
+
+        {/* Show sentence hint if answered */}
+        {isAnswered && (
+          <div className="mt-4 tip-box text-left animate-fade-in">
+            <p className="bilingual-en text-sm italic">"{current.example}"</p>
+            <p className="bilingual-vi text-xs mt-1">"{current.exampleVi}"</p>
+          </div>
+        )}
+      </div>
+
+      {/* Options */}
+      <div className="grid grid-cols-1 gap-3 mb-6">
+        {options.map(opt => {
+          let cls = 'card p-4 text-left cursor-pointer transition-all border-2 ';
+          if (!isAnswered) {
+            cls += 'border-transparent hover:border-blue-500 card-hover';
+          } else if (opt.id === current.id) {
+            cls += 'border-emerald-500 bg-emerald-900/30';
+          } else if (opt.id === selected && opt.id !== current.id) {
+            cls += 'border-red-500 bg-red-900/30';
+          } else {
+            cls += 'border-transparent opacity-50';
+          }
+          return (
+            <button key={opt.id} onClick={() => handleSelect(opt.id)} className={cls}>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium" style={{ color: isAnswered && opt.id === current.id ? '#6ee7b7' : isAnswered && opt.id === selected ? '#fca5a5' : 'var(--text-primary)' }}>
+                  {opt.meaning}
+                </span>
+                {isAnswered && opt.id === current.id && <span className="text-emerald-400 text-lg">✓</span>}
+                {isAnswered && opt.id === selected && opt.id !== current.id && <span className="text-red-400 text-lg">✗</span>}
+              </div>
+              <p className="text-xs text-slate-500 mt-0.5 font-mono">{opt.word}</p>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Next button */}
+      {isAnswered && (
+        <div className="flex justify-center animate-fade-in">
+          <button onClick={handleNext} className="btn-primary px-8">
+            {qIdx + 1 >= quizWords.length ? '🏁 Xem kết quả' : 'Câu tiếp theo →'}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Vocabulary() {
   const [learned, setLearned] = useState(loadLearned);
   const [filter, setFilter] = useState('all'); // all | learned | unlearned
   const [search, setSearch] = useState('');
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [mode, setMode] = useState('grid'); // grid | flashcard
+  const [mode, setMode] = useState('grid'); // grid | flashcard | quiz
   const [showAnswer, setShowAnswer] = useState(false);
   const [expandedId, setExpandedId] = useState(null);
 
@@ -70,7 +218,7 @@ export default function Vocabulary() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="section-title">📚 GRE Vocabulary</h1>
-        <p className="section-subtitle">100 từ vựng GRE Verbal thiết yếu • Nhấn vào thẻ để xem chi tiết</p>
+        <p className="section-subtitle">500 từ vựng GRE Verbal thiết yếu • Nhấn vào thẻ để xem chi tiết</p>
 
         {/* Progress */}
         <div className="mt-4 card p-4">
@@ -88,38 +236,49 @@ export default function Vocabulary() {
       <div className="flex flex-wrap gap-3 mb-6">
         {/* Mode toggle */}
         <div className="control-group flex">
-          {['grid', 'flashcard'].map(m => (
+          {[['grid','📋 Danh sách'],['flashcard','🃏 Flashcard'],['quiz','🧠 Quiz']].map(([m, label]) => (
             <button key={m} onClick={() => { setMode(m); setShowAnswer(false); setCurrentIdx(0); }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${mode === m ? 'tab-active' : 'tab-inactive'}`}>
-              {m === 'grid' ? '📋 Danh sách' : '🃏 Flashcard'}
+              {label}
             </button>
           ))}
         </div>
 
-        {/* Filter */}
-        <div className="control-group flex">
-          {[['all','Tất cả'],['unlearned','Chưa thuộc'],['learned','Đã thuộc']].map(([val, label]) => (
-            <button key={val} onClick={() => { setFilter(val); setCurrentIdx(0); }}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${filter === val ? 'tab-active' : 'tab-inactive'}`}>
-              {label} {val === 'learned' ? `(${learnedCount})` : val === 'unlearned' ? `(${allWords.length - learnedCount})` : `(${allWords.length})`}
-            </button>
-          ))}
-        </div>
+        {/* Filter (hidden in quiz mode) */}
+        {mode !== 'quiz' && (
+          <div className="control-group flex">
+            {[['all','Tất cả'],['unlearned','Chưa thuộc'],['learned','Đã thuộc']].map(([val, label]) => (
+              <button key={val} onClick={() => { setFilter(val); setCurrentIdx(0); }}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${filter === val ? 'tab-active' : 'tab-inactive'}`}>
+                {label} {val === 'learned' ? `(${learnedCount})` : val === 'unlearned' ? `(${allWords.length - learnedCount})` : `(${allWords.length})`}
+              </button>
+            ))}
+          </div>
+        )}
 
-        {/* Search */}
-        <div className="flex-1 min-w-48">
-          <input value={search} onChange={e => setSearch(e.target.value)}
-            placeholder="🔍 Tìm từ, nghĩa, đồng nghĩa..."
-            className="search-input" />
-        </div>
+        {/* Search (hidden in quiz mode) */}
+        {mode !== 'quiz' && (
+          <div className="flex-1 min-w-48">
+            <input value={search} onChange={e => setSearch(e.target.value)}
+              placeholder="🔍 Tìm từ, nghĩa, đồng nghĩa..."
+              className="search-input" />
+          </div>
+        )}
 
         {mode === 'flashcard' && (
           <button onClick={randomize} className="btn-primary text-sm">🎲 Ngẫu nhiên</button>
         )}
       </div>
 
-      {/* Count */}
-      <p className="text-slate-500 text-sm mb-4">Hiển thị {filtered.length} từ</p>
+      {/* Count (hidden in quiz mode) */}
+      {mode !== 'quiz' && (
+        <p className="text-slate-500 text-sm mb-4">Hiển thị {filtered.length} từ</p>
+      )}
+
+      {/* ===== QUIZ MODE ===== */}
+      {mode === 'quiz' && (
+        <QuizMode words={filtered.length >= 4 ? filtered : allWords} learned={learned} toggleLearn={toggleLearn} />
+      )}
 
       {/* ===== GRID MODE ===== */}
       {mode === 'grid' && (
