@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import writingTask2Topics from '../data/writingTask2.js';
+import writingTask2Band5 from '../data/writingTask2_band5.js';
 
 const TYPE_COLORS = {
   'Opinion (Agree/Disagree)':           'bg-blue-900/60 text-blue-300 border-blue-700/50',
@@ -21,8 +22,12 @@ export default function WritingTask2() {
   const [showVocab, setShowVocab] = useState(true);
   const [showStructures, setShowStructures] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [selectedBand, setSelectedBand] = useState(7);
 
   const topic = writingTask2Topics.find(t => t.id === selectedId) || writingTask2Topics[0];
+  const essay = selectedBand === 5
+    ? (writingTask2Band5.find(b => b.id === topic.id)?.essay || topic.essay)
+    : topic.essay;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 animate-fade-in">
@@ -68,6 +73,13 @@ export default function WritingTask2() {
             <button onClick={() => setShowStructures(v => !v)} className={`btn-secondary text-sm ${showStructures ? 'border-blue-600 text-blue-400' : ''}`}>
               🔧 Cấu trúc
             </button>
+            <div className="control-group flex ml-auto">
+              <span className="px-2 py-1.5 text-xs text-slate-400 font-semibold self-center">Band:</span>
+              {[[5,'🟢 Band 5+'],[7,'🔵 Band 7+']].map(([b, l]) => (
+                <button key={b} onClick={() => setSelectedBand(b)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+              ))}
+            </div>
           </div>
 
           {/* Topic Header */}
@@ -94,10 +106,17 @@ export default function WritingTask2() {
             </div>
           </div>
 
+          {/* Band indicator */}
+          {selectedBand === 5 && (
+            <div className="mb-4 px-4 py-2 rounded-xl bg-green-900/30 border border-green-700/40 text-green-300 text-xs font-medium flex items-center gap-2">
+              <span>🟢</span> Đang xem bài mẫu <strong>Band 5+</strong> — từ vựng và cấu trúc đơn giản hơn
+            </div>
+          )}
+
           {/* Essay Body */}
           <div className="space-y-4 mb-5">
             {SECTION_META.map(({ key, label, color, icon, labelEn }) => {
-              const section = topic.essay[key];
+              const section = essay[key];
               if (!section) return null;
               return (
                 <div key={key} className="card p-5">

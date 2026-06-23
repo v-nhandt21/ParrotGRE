@@ -3,6 +3,7 @@ import Vocabulary from './components/Vocabulary.jsx';
 import WritingTask2 from './components/WritingTask2.jsx';
 import WritingTask1 from './components/WritingTask1.jsx';
 import { SpeakingPart1, SpeakingPart2, SpeakingPart3 } from './components/Speaking.jsx';
+import Dictation from './components/Dictation.jsx';
 
 const TABS = [
   { id: 'vocab',    label: '📚 Vocabulary',     labelShort: 'Vocab',  subtitle: 'GRE 500 Words',  color: 'from-blue-600 to-blue-700',    component: Vocabulary    },
@@ -11,6 +12,7 @@ const TABS = [
   { id: 'speak1',   label: '🗣️ Speaking Part 1', labelShort: 'Part 1', subtitle: 'Q&A Practice',  color: 'from-emerald-600 to-emerald-700', component: SpeakingPart1 },
   { id: 'speak2',   label: '🎤 Speaking Part 2', labelShort: 'Part 2', subtitle: 'Cue Card',      color: 'from-orange-600 to-orange-700', component: SpeakingPart2 },
   { id: 'speak3',   label: '💬 Speaking Part 3', labelShort: 'Part 3', subtitle: 'Discussion',    color: 'from-red-600 to-red-700',       component: SpeakingPart3 },
+  { id: 'dictation', label: '📝 Dictation',       labelShort: 'Chép',   subtitle: 'Luyện chép lại', color: 'from-teal-600 to-teal-700',    component: Dictation      },
 ];
 
 function ThemeToggle({ theme, onToggle }) {
