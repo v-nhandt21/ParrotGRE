@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import writingTask2Topics from '../data/writingTask2.js';
+import writingTask2Topics from '../data/writingTask2_band7.js';
 import writingTask2Band5 from '../data/writingTask2_band5.js';
+import writingTask2Band6 from '../data/writingTask2_band6.js';
 
 const TYPE_COLORS = {
   'Opinion (Agree/Disagree)':           'bg-blue-900/60 text-blue-300 border-blue-700/50',
@@ -27,6 +28,8 @@ export default function WritingTask2() {
   const topic = writingTask2Topics.find(t => t.id === selectedId) || writingTask2Topics[0];
   const essay = selectedBand === 5
     ? (writingTask2Band5.find(b => b.id === topic.id)?.essay || topic.essay)
+    : selectedBand === 6
+    ? (writingTask2Band6.find(b => b.id === topic.id)?.essay || topic.essay)
     : topic.essay;
 
   return (
@@ -75,9 +78,9 @@ export default function WritingTask2() {
             </button>
             <div className="control-group flex ml-auto">
               <span className="px-2 py-1.5 text-xs text-slate-400 font-semibold self-center">Band:</span>
-              {[[5,'🟢 Band 5+'],[7,'🔵 Band 7+']].map(([b, l]) => (
+              {[[5,'🟢 5+'],[6,'🟡 6+'],[7,'🔵 7+']].map(([b, l]) => (
                 <button key={b} onClick={() => setSelectedBand(b)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : b === 6 ? 'bg-amber-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
               ))}
             </div>
           </div>
@@ -110,6 +113,11 @@ export default function WritingTask2() {
           {selectedBand === 5 && (
             <div className="mb-4 px-4 py-2 rounded-xl bg-green-900/30 border border-green-700/40 text-green-300 text-xs font-medium flex items-center gap-2">
               <span>🟢</span> Đang xem bài mẫu <strong>Band 5+</strong> — từ vựng và cấu trúc đơn giản hơn
+            </div>
+          )}
+          {selectedBand === 6 && (
+            <div className="mb-4 px-4 py-2 rounded-xl bg-amber-900/30 border border-amber-700/40 text-amber-300 text-xs font-medium flex items-center gap-2">
+              <span>🟡</span> Đang xem bài mẫu <strong>Band 6+</strong> — từ vựng trung cấp, lập luận rõ ràng
             </div>
           )}
 

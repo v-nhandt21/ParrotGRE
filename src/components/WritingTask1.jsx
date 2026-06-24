@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import writingTask1Types from '../data/writingTask1.js';
+import writingTask1Types from '../data/writingTask1_band7.js';
 import writingTask1Band5 from '../data/writingTask1_band5.js';
+import writingTask1Band6 from '../data/writingTask1_band6.js';
 
 export default function WritingTask1() {
   const [selectedId, setSelectedId] = useState(1);
@@ -11,6 +12,7 @@ export default function WritingTask1() {
 
   const chartType = writingTask1Types.find(t => t.id === selectedId) || writingTask1Types[0];
   const band5Data = writingTask1Band5.find(b => b.id === chartType.id);
+  const band6Data = writingTask1Band6.find(b => b.id === chartType.id);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 animate-fade-in">
@@ -118,9 +120,9 @@ export default function WritingTask1() {
             <div className="flex flex-wrap gap-2 mb-3 items-center">
               <div className="control-group flex">
                 <span className="px-2 py-1.5 text-xs text-slate-400 font-semibold self-center">Band:</span>
-                {[[5,'🟢 5+'],[7,'🔵 7+']].map(([b, l]) => (
+                {[[5,'🟢 5+'],[6,'🟡 6+'],[7,'🔵 7+']].map(([b, l]) => (
                   <button key={b} onClick={() => setSelectedBand(b)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : b === 6 ? 'bg-amber-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
                 ))}
               </div>
               {chartType.sampleAnswer2 && (
@@ -137,6 +139,11 @@ export default function WritingTask1() {
             {selectedBand === 5 && (
               <div className="mb-3 px-3 py-2 rounded-lg bg-green-900/30 border border-green-700/40 text-green-300 text-xs font-medium">
                 🟢 Bài mẫu <strong>Band 5+</strong> — từ vựng và câu đơn giản hơn
+              </div>
+            )}
+            {selectedBand === 6 && (
+              <div className="mb-3 px-3 py-2 rounded-lg bg-amber-900/30 border border-amber-700/40 text-amber-300 text-xs font-medium">
+                🟡 Bài mẫu <strong>Band 6+</strong> — từ vựng trung cấp, mô tả rõ ràng
               </div>
             )}
 
@@ -158,8 +165,11 @@ export default function WritingTask1() {
 
             {(() => {
               const band5Answer = sampleNum === 2 ? band5Data?.sampleAnswer2 : band5Data?.sampleAnswer;
+              const band6Answer = sampleNum === 2 ? band6Data?.sampleAnswer2 : band6Data?.sampleAnswer;
               const band7Answer = sampleNum === 2 && chartType.sampleAnswer2 ? chartType.sampleAnswer2 : chartType.sampleAnswer;
-              const answer = selectedBand === 5 && band5Answer ? band5Answer : band7Answer;
+              const answer = selectedBand === 5 && band5Answer ? band5Answer
+                : selectedBand === 6 && band6Answer ? band6Answer
+                : band7Answer;
               return (
                 <div className="card p-5 space-y-4 bg-slate-900/50">
                   {(lang === 'en' || lang === 'both') && (

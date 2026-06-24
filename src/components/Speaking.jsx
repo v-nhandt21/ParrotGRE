@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { speakingPart1, speakingPart2, speakingPart3 } from '../data/speakingData.js';
+import { speakingPart1, speakingPart2, speakingPart3 } from '../data/speakingData_band7.js';
 import { speakingPart1Band5, speakingPart2Band5, speakingPart3Band5 } from '../data/speakingData_band5.js';
+import { speakingPart1Band6, speakingPart2Band6, speakingPart3Band6 } from '../data/speakingData_band6.js';
 
 // ===== PART 1 =====
 function Part1() {
@@ -10,6 +11,7 @@ function Part1() {
   const [selectedBand, setSelectedBand] = useState(7);
   const topic = speakingPart1[selectedTopic];
   const band5Topic = speakingPart1Band5.find(b => b.id === topic.id);
+  const band6Topic = speakingPart1Band6.find(b => b.id === topic.id);
 
   return (
     <div className="animate-fade-in">
@@ -38,9 +40,9 @@ function Part1() {
         </div>
         <div className="control-group flex ml-auto">
           <span className="px-2 py-1.5 text-xs text-slate-400 font-semibold self-center">Band:</span>
-          {[[5,'🟢 5+'],[7,'🔵 7+']].map(([b, l]) => (
+          {[[5,'🟢 5+'],[6,'🟡 6+'],[7,'🔵 7+']].map(([b, l]) => (
             <button key={b} onClick={() => setSelectedBand(b)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : b === 6 ? 'bg-amber-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
           ))}
         </div>
       </div>
@@ -50,13 +52,19 @@ function Part1() {
           🟢 Đang xem câu trả lời <strong>Band 5+</strong> — ngắn gọn, từ vựng đơn giản
         </div>
       )}
+      {selectedBand === 6 && (
+        <div className="mb-4 px-3 py-2 rounded-lg bg-amber-900/30 border border-amber-700/40 text-amber-300 text-xs font-medium">
+          🟡 Đang xem câu trả lời <strong>Band 6+</strong> — rõ ràng, có ví dụ, từ vựng trung cấp
+        </div>
+      )}
 
       {/* Questions */}
       <div className="space-y-3">
         {topic.questions.map((q, i) => {
           const band5Q = band5Topic?.questions[i];
-          const displayAnswer = selectedBand === 5 && band5Q ? band5Q.answer : q.answer;
-          const displayAnswerVi = selectedBand === 5 && band5Q ? band5Q.answerVi : q.answerVi;
+          const band6Q = band6Topic?.questions[i];
+          const displayAnswer = selectedBand === 5 && band5Q ? band5Q.answer : selectedBand === 6 && band6Q ? band6Q.answer : q.answer;
+          const displayAnswerVi = selectedBand === 5 && band5Q ? band5Q.answerVi : selectedBand === 6 && band6Q ? band6Q.answerVi : q.answerVi;
           return (
             <div key={i} className="card card-hover">
               <button className="w-full text-left p-4" onClick={() => setOpenQ(openQ === i ? null : i)}>
@@ -107,7 +115,10 @@ function Part2() {
   const [selectedBand, setSelectedBand] = useState(7);
   const card = speakingPart2.find(c => c.id === selectedId) || speakingPart2[0];
   const band5Card = speakingPart2Band5.find(b => b.id === card.id);
-  const sampleAnswer = selectedBand === 5 && band5Card ? band5Card.sampleAnswer : card.sampleAnswer;
+  const band6Card = speakingPart2Band6.find(b => b.id === card.id);
+  const sampleAnswer = selectedBand === 5 && band5Card ? band5Card.sampleAnswer
+    : selectedBand === 6 && band6Card ? band6Card.sampleAnswer
+    : card.sampleAnswer;
 
   return (
     <div className="animate-fade-in">
@@ -130,9 +141,9 @@ function Part2() {
       <div className="flex items-center gap-2 mb-4">
         <div className="control-group flex">
           <span className="px-2 py-1.5 text-xs text-slate-400 font-semibold self-center">Band:</span>
-          {[[5,'🟢 Band 5+'],[7,'🔵 Band 7+']].map(([b, l]) => (
+          {[[5,'🟢 Band 5+'],[6,'🟡 Band 6+'],[7,'🔵 Band 7+']].map(([b, l]) => (
             <button key={b} onClick={() => setSelectedBand(b)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : b === 6 ? 'bg-amber-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
           ))}
         </div>
       </div>
@@ -140,6 +151,11 @@ function Part2() {
       {selectedBand === 5 && (
         <div className="mb-4 px-3 py-2 rounded-lg bg-green-900/30 border border-green-700/40 text-green-300 text-xs font-medium">
           🟢 Đang xem bài mẫu <strong>Band 5+</strong> — từ vựng và cấu trúc đơn giản hơn
+        </div>
+      )}
+      {selectedBand === 6 && (
+        <div className="mb-4 px-3 py-2 rounded-lg bg-amber-900/30 border border-amber-700/40 text-amber-300 text-xs font-medium">
+          🟡 Đang xem bài mẫu <strong>Band 6+</strong> — có cấu trúc rõ ràng, từ vựng trung cấp
         </div>
       )}
 
@@ -225,6 +241,7 @@ function Part3() {
   const [selectedBand, setSelectedBand] = useState(7);
   const topic = speakingPart3.find(t => t.id === selectedId) || speakingPart3[0];
   const band5Topic = speakingPart3Band5.find(b => b.id === topic.id);
+  const band6Topic = speakingPart3Band6.find(b => b.id === topic.id);
 
   return (
     <div className="animate-fade-in">
@@ -259,9 +276,9 @@ function Part3() {
         </div>
         <div className="control-group flex ml-auto">
           <span className="px-2 py-1.5 text-xs text-slate-400 font-semibold self-center">Band:</span>
-          {[[5,'🟢 5+'],[7,'🔵 7+']].map(([b, l]) => (
+          {[[5,'🟢 5+'],[6,'🟡 6+'],[7,'🔵 7+']].map(([b, l]) => (
             <button key={b} onClick={() => setSelectedBand(b)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : b === 6 ? 'bg-amber-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
           ))}
         </div>
       </div>
@@ -271,13 +288,19 @@ function Part3() {
           🟢 Đang xem câu trả lời <strong>Band 5+</strong> — ý kiến rõ ràng, ngôn ngữ đơn giản
         </div>
       )}
+      {selectedBand === 6 && (
+        <div className="mb-4 px-3 py-2 rounded-lg bg-amber-900/30 border border-amber-700/40 text-amber-300 text-xs font-medium">
+          🟡 Đang xem câu trả lời <strong>Band 6+</strong> — lập luận có căn cứ, từ vựng trung cấp
+        </div>
+      )}
 
       {/* Questions */}
       <div className="space-y-3">
         {topic.questions.map((q, i) => {
           const band5Q = band5Topic?.questions[i];
-          const displayAnswer = selectedBand === 5 && band5Q ? band5Q.answer : q.answer;
-          const displayAnswerVi = selectedBand === 5 && band5Q ? band5Q.answerVi : q.answerVi;
+          const band6Q = band6Topic?.questions[i];
+          const displayAnswer = selectedBand === 5 && band5Q ? band5Q.answer : selectedBand === 6 && band6Q ? band6Q.answer : q.answer;
+          const displayAnswerVi = selectedBand === 5 && band5Q ? band5Q.answerVi : selectedBand === 6 && band6Q ? band6Q.answerVi : q.answerVi;
           return (
             <div key={i} className="card card-hover">
               <button className="w-full text-left p-4" onClick={() => setOpenQ(openQ === i ? null : i)}>
@@ -295,7 +318,7 @@ function Part3() {
               </button>
               {openQ === i && (
                 <div className="px-4 pb-4 border-t border-slate-700 pt-3 animate-fade-in">
-                  <p className="text-xs font-semibold text-emerald-400 mb-2">🎤 Câu trả lời mẫu ({selectedBand === 5 ? 'Band 5+' : 'Band 7+'})</p>
+                  <p className="text-xs font-semibold text-emerald-400 mb-2">🎤 Câu trả lời mẫu ({selectedBand === 5 ? 'Band 5+' : selectedBand === 6 ? 'Band 6+' : 'Band 7+'})</p>
                   <div className="success-box space-y-2">
                     {(lang === 'en' || lang === 'both') && (
                       <p className="bilingual-en text-sm leading-relaxed">{displayAnswer}</p>

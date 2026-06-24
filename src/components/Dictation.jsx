@@ -1,10 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import { writingTask1Types } from '../data/writingTask1';
-import { writingTask2Topics } from '../data/writingTask2';
-import { speakingPart1, speakingPart2, speakingPart3 } from '../data/speakingData';
+import { writingTask1Types } from '../data/writingTask1_band7';
+import { writingTask2Topics } from '../data/writingTask2_band7';
+import { speakingPart1, speakingPart2, speakingPart3 } from '../data/speakingData_band7';
 import writingTask1Band5 from '../data/writingTask1_band5';
 import writingTask2Band5 from '../data/writingTask2_band5';
 import { speakingPart1Band5, speakingPart2Band5, speakingPart3Band5 } from '../data/speakingData_band5';
+import writingTask1Band6 from '../data/writingTask1_band6';
+import writingTask2Band6 from '../data/writingTask2_band6';
+import { speakingPart1Band6, speakingPart2Band6, speakingPart3Band6 } from '../data/speakingData_band6';
 
 // ─── Badge config ─────────────────────────────────────────────
 const BADGE = {
@@ -96,6 +99,58 @@ const DICTATION_ITEMS_B5 = [
       sections: t.questions.map((q, i) => {
         const b5q = b5?.questions[i];
         return { title: `Q${i + 1}: ${q.q}`, en: b5q?.answer || q.answer, vi: b5q?.answerVi || q.answerVi };
+      }),
+    };
+  }),
+];
+
+const DICTATION_ITEMS_B6 = [
+  ...writingTask1Types.map(t => {
+    const b6 = writingTask1Band6.find(b => b.id === t.id);
+    const ans = b6?.sampleAnswer || t.sampleAnswer;
+    return {
+      id: `w1_${t.id}`, type: 'writing1', title: `${t.icon} ${t.type}`, titleVi: t.typeVi,
+      sections: [{ title: 'Sample Answer', en: ans.en, vi: ans.vi }],
+    };
+  }),
+  ...writingTask2Topics.map(t => {
+    const b6 = writingTask2Band6.find(b => b.id === t.id);
+    const essay = b6?.essay || t.essay;
+    return {
+      id: `w2_${t.id}`, type: 'writing2', title: t.title, titleVi: t.titleVi,
+      sections: [
+        { title: 'Introduction', en: essay.introduction.en, vi: essay.introduction.vi },
+        { title: 'Body 1',       en: essay.body1.en,        vi: essay.body1.vi },
+        { title: 'Body 2',       en: essay.body2.en,        vi: essay.body2.vi },
+        { title: 'Conclusion',   en: essay.conclusion.en,   vi: essay.conclusion.vi },
+      ],
+    };
+  }),
+  ...speakingPart1.map(t => {
+    const b6 = speakingPart1Band6.find(b => b.id === t.id);
+    return {
+      id: `sp1_${t.id}`, type: 'speak1', title: t.topic, titleVi: t.topicVi,
+      sections: t.questions.map((q, i) => {
+        const b6q = b6?.questions[i];
+        return { title: `Q${i + 1}: ${q.q}`, en: b6q?.answer || q.answer, vi: b6q?.answerVi || q.answerVi };
+      }),
+    };
+  }),
+  ...speakingPart2.map(t => {
+    const b6 = speakingPart2Band6.find(b => b.id === t.id);
+    const ans = b6?.sampleAnswer || t.sampleAnswer;
+    return {
+      id: `sp2_${t.id}`, type: 'speak2', title: t.cueCard, titleVi: t.cueCardVi,
+      sections: [{ title: 'Model Answer', en: ans.en, vi: ans.vi }],
+    };
+  }),
+  ...speakingPart3.map(t => {
+    const b6 = speakingPart3Band6.find(b => b.id === t.id);
+    return {
+      id: `sp3_${t.id}`, type: 'speak3', title: t.topic, titleVi: t.topicVi,
+      sections: t.questions.map((q, i) => {
+        const b6q = b6?.questions[i];
+        return { title: `Q${i + 1}: ${q.q}`, en: b6q?.answer || q.answer, vi: b6q?.answerVi || q.answerVi };
       }),
     };
   }),
@@ -599,7 +654,7 @@ export default function Dictation() {
   const [activeItem,    setActiveItem]    = useState(null);
   const [selectedBand,  setSelectedBand]  = useState(7);
 
-  const ITEMS = selectedBand === 5 ? DICTATION_ITEMS_B5 : DICTATION_ITEMS_B7;
+  const ITEMS = selectedBand === 5 ? DICTATION_ITEMS_B5 : selectedBand === 6 ? DICTATION_ITEMS_B6 : DICTATION_ITEMS_B7;
 
   const filtered = filter === 'all'
     ? ITEMS
@@ -677,9 +732,9 @@ export default function Dictation() {
         ))}
         <div className="control-group flex ml-auto">
           <span className="px-2 py-1 text-xs text-slate-400 font-semibold self-center">Band:</span>
-          {[[5,'🟢 5+'],[7,'🔵 7+']].map(([b, l]) => (
+          {[[5,'🟢 5+'],[6,'🟡 6+'],[7,'🔵 7+']].map(([b, l]) => (
             <button key={b} onClick={() => setSelectedBand(b)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : b === 6 ? 'bg-amber-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
           ))}
         </div>
       </div>
@@ -687,6 +742,11 @@ export default function Dictation() {
       {selectedBand === 5 && (
         <div className="mb-4 px-3 py-2 rounded-lg bg-green-900/30 border border-green-700/40 text-green-300 text-xs font-medium">
           🟢 Đang luyện nội dung <strong>Band 5+</strong> — từ vựng và cấu trúc đơn giản hơn
+        </div>
+      )}
+      {selectedBand === 6 && (
+        <div className="mb-4 px-3 py-2 rounded-lg bg-amber-900/30 border border-amber-700/40 text-amber-300 text-xs font-medium">
+          🟡 Đang luyện nội dung <strong>Band 6+</strong> — từ vựng trung cấp, cấu trúc rõ ràng
         </div>
       )}
 
