@@ -2,6 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import { writingTask1Types } from '../data/writingTask1';
 import { writingTask2Topics } from '../data/writingTask2';
 import { speakingPart1, speakingPart2, speakingPart3 } from '../data/speakingData';
+import writingTask1Band5 from '../data/writingTask1_band5';
+import writingTask2Band5 from '../data/writingTask2_band5';
+import { speakingPart1Band5, speakingPart2Band5, speakingPart3Band5 } from '../data/speakingData_band5';
 
 // ─── Badge config ─────────────────────────────────────────────
 const BADGE = {
@@ -17,8 +20,8 @@ const SECTION_BORDER = [
   'border-emerald-500', 'border-orange-500', 'border-teal-500',
 ];
 
-// ─── Master list ──────────────────────────────────────────────
-const DICTATION_ITEMS = [
+// ─── Master lists (Band 7 = original, Band 5 = simplified) ───
+const DICTATION_ITEMS_B7 = [
   ...writingTask1Types.map(t => ({
     id: `w1_${t.id}`, type: 'writing1', title: `${t.icon} ${t.type}`, titleVi: t.typeVi,
     sections: [{ title: 'Sample Answer', en: t.sampleAnswer.en, vi: t.sampleAnswer.vi }],
@@ -44,6 +47,58 @@ const DICTATION_ITEMS = [
     id: `sp3_${t.id}`, type: 'speak3', title: t.topic, titleVi: t.topicVi,
     sections: t.questions.map((q, i) => ({ title: `Q${i + 1}: ${q.q}`, en: q.answer, vi: q.answerVi })),
   })),
+];
+
+const DICTATION_ITEMS_B5 = [
+  ...writingTask1Types.map(t => {
+    const b5 = writingTask1Band5.find(b => b.id === t.id);
+    const ans = b5?.sampleAnswer || t.sampleAnswer;
+    return {
+      id: `w1_${t.id}`, type: 'writing1', title: `${t.icon} ${t.type}`, titleVi: t.typeVi,
+      sections: [{ title: 'Sample Answer', en: ans.en, vi: ans.vi }],
+    };
+  }),
+  ...writingTask2Topics.map(t => {
+    const b5 = writingTask2Band5.find(b => b.id === t.id);
+    const essay = b5?.essay || t.essay;
+    return {
+      id: `w2_${t.id}`, type: 'writing2', title: t.title, titleVi: t.titleVi,
+      sections: [
+        { title: 'Introduction', en: essay.introduction.en, vi: essay.introduction.vi },
+        { title: 'Body 1',       en: essay.body1.en,        vi: essay.body1.vi },
+        { title: 'Body 2',       en: essay.body2.en,        vi: essay.body2.vi },
+        { title: 'Conclusion',   en: essay.conclusion.en,   vi: essay.conclusion.vi },
+      ],
+    };
+  }),
+  ...speakingPart1.map(t => {
+    const b5 = speakingPart1Band5.find(b => b.id === t.id);
+    return {
+      id: `sp1_${t.id}`, type: 'speak1', title: t.topic, titleVi: t.topicVi,
+      sections: t.questions.map((q, i) => {
+        const b5q = b5?.questions[i];
+        return { title: `Q${i + 1}: ${q.q}`, en: b5q?.answer || q.answer, vi: b5q?.answerVi || q.answerVi };
+      }),
+    };
+  }),
+  ...speakingPart2.map(t => {
+    const b5 = speakingPart2Band5.find(b => b.id === t.id);
+    const ans = b5?.sampleAnswer || t.sampleAnswer;
+    return {
+      id: `sp2_${t.id}`, type: 'speak2', title: t.cueCard, titleVi: t.cueCardVi,
+      sections: [{ title: 'Model Answer', en: ans.en, vi: ans.vi }],
+    };
+  }),
+  ...speakingPart3.map(t => {
+    const b5 = speakingPart3Band5.find(b => b.id === t.id);
+    return {
+      id: `sp3_${t.id}`, type: 'speak3', title: t.topic, titleVi: t.topicVi,
+      sections: t.questions.map((q, i) => {
+        const b5q = b5?.questions[i];
+        return { title: `Q${i + 1}: ${q.q}`, en: b5q?.answer || q.answer, vi: b5q?.answerVi || q.answerVi };
+      }),
+    };
+  }),
 ];
 
 const FILTERS = [
@@ -539,17 +594,20 @@ function DictCard({ item, prog, onStart }) {
 
 // ─── Main component ───────────────────────────────────────────
 export default function Dictation() {
-  const [progress,   setProgress]   = useState(loadProgress);
-  const [filter,     setFilter]     = useState('all');
-  const [activeItem, setActiveItem] = useState(null);
+  const [progress,      setProgress]      = useState(loadProgress);
+  const [filter,        setFilter]        = useState('all');
+  const [activeItem,    setActiveItem]    = useState(null);
+  const [selectedBand,  setSelectedBand]  = useState(7);
+
+  const ITEMS = selectedBand === 5 ? DICTATION_ITEMS_B5 : DICTATION_ITEMS_B7;
 
   const filtered = filter === 'all'
-    ? DICTATION_ITEMS
-    : DICTATION_ITEMS.filter(it => it.type === filter);
+    ? ITEMS
+    : ITEMS.filter(it => it.type === filter);
 
-  const total    = DICTATION_ITEMS.length;
-  const learning = DICTATION_ITEMS.filter(it => { const c = progress[it.id]?.count || 0; return c >= 1 && c < 3; }).length;
-  const done     = DICTATION_ITEMS.filter(it => (progress[it.id]?.count || 0) >= 3).length;
+  const total    = DICTATION_ITEMS_B7.length;
+  const learning = DICTATION_ITEMS_B7.filter(it => { const c = progress[it.id]?.count || 0; return c >= 1 && c < 3; }).length;
+  const done     = DICTATION_ITEMS_B7.filter(it => (progress[it.id]?.count || 0) >= 3).length;
 
   function handleComplete(id, accuracy) {
     const prev    = progress[id] || {};
@@ -601,8 +659,8 @@ export default function Dictation() {
         </div>
       </div>
 
-      {/* Filters */}
-      <div className="flex gap-1 flex-wrap mb-4">
+      {/* Filters + Band selector row */}
+      <div className="flex gap-1 flex-wrap mb-4 items-center">
         {FILTERS.map(f => (
           <button
             key={f.id}
@@ -613,11 +671,24 @@ export default function Dictation() {
           >
             {f.label}
             {f.id !== 'all' && (
-              <span className="ml-1 opacity-60">({DICTATION_ITEMS.filter(it => it.type === f.id).length})</span>
+              <span className="ml-1 opacity-60">({DICTATION_ITEMS_B7.filter(it => it.type === f.id).length})</span>
             )}
           </button>
         ))}
+        <div className="control-group flex ml-auto">
+          <span className="px-2 py-1 text-xs text-slate-400 font-semibold self-center">Band:</span>
+          {[[5,'🟢 5+'],[7,'🔵 7+']].map(([b, l]) => (
+            <button key={b} onClick={() => setSelectedBand(b)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
+          ))}
+        </div>
       </div>
+
+      {selectedBand === 5 && (
+        <div className="mb-4 px-3 py-2 rounded-lg bg-green-900/30 border border-green-700/40 text-green-300 text-xs font-medium">
+          🟢 Đang luyện nội dung <strong>Band 5+</strong> — từ vựng và cấu trúc đơn giản hơn
+        </div>
+      )}
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">

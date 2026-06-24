@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import writingTask1Types from '../data/writingTask1.js';
+import writingTask1Band5 from '../data/writingTask1_band5.js';
 
 export default function WritingTask1() {
   const [selectedId, setSelectedId] = useState(1);
   const [tab, setTab] = useState('phrases'); // phrases | template | sample
   const [lang, setLang] = useState('both');
   const [sampleNum, setSampleNum] = useState(1);
+  const [selectedBand, setSelectedBand] = useState(7);
 
   const chartType = writingTask1Types.find(t => t.id === selectedId) || writingTask1Types[0];
+  const band5Data = writingTask1Band5.find(b => b.id === chartType.id);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 animate-fade-in">
@@ -111,15 +114,29 @@ export default function WritingTask1() {
         {/* Tab: Sample Answer */}
         {tab === 'sample' && (
           <div className="animate-fade-in">
-            {/* Sample 1 / Sample 2 toggle */}
-            {chartType.sampleAnswer2 && (
-              <div className="flex gap-2 mb-3">
-                {[1, 2].map(n => (
-                  <button key={n} onClick={() => setSampleNum(n)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${sampleNum === n ? 'tab-active border-blue-500' : 'tab-inactive border border-[var(--border-solid)]'}`}>
-                    📝 Bài mẫu {n}
-                  </button>
+            {/* Band selector + Sample 1/2 toggle row */}
+            <div className="flex flex-wrap gap-2 mb-3 items-center">
+              <div className="control-group flex">
+                <span className="px-2 py-1.5 text-xs text-slate-400 font-semibold self-center">Band:</span>
+                {[[5,'🟢 5+'],[7,'🔵 7+']].map(([b, l]) => (
+                  <button key={b} onClick={() => setSelectedBand(b)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selectedBand === b ? (b === 5 ? 'bg-green-600 text-white' : 'bg-blue-600 text-white') : 'tab-inactive'}`}>{l}</button>
                 ))}
+              </div>
+              {chartType.sampleAnswer2 && (
+                <div className="flex gap-2">
+                  {[1, 2].map(n => (
+                    <button key={n} onClick={() => setSampleNum(n)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${sampleNum === n ? 'tab-active border-blue-500' : 'tab-inactive border border-[var(--border-solid)]'}`}>
+                      📝 Bài mẫu {n}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            {selectedBand === 5 && (
+              <div className="mb-3 px-3 py-2 rounded-lg bg-green-900/30 border border-green-700/40 text-green-300 text-xs font-medium">
+                🟢 Bài mẫu <strong>Band 5+</strong> — từ vựng và câu đơn giản hơn
               </div>
             )}
 
@@ -140,7 +157,9 @@ export default function WritingTask1() {
             </div>
 
             {(() => {
-              const answer = sampleNum === 2 && chartType.sampleAnswer2 ? chartType.sampleAnswer2 : chartType.sampleAnswer;
+              const band5Answer = sampleNum === 2 ? band5Data?.sampleAnswer2 : band5Data?.sampleAnswer;
+              const band7Answer = sampleNum === 2 && chartType.sampleAnswer2 ? chartType.sampleAnswer2 : chartType.sampleAnswer;
+              const answer = selectedBand === 5 && band5Answer ? band5Answer : band7Answer;
               return (
                 <div className="card p-5 space-y-4 bg-slate-900/50">
                   {(lang === 'en' || lang === 'both') && (
